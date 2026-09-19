@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-pixel-heading: 'Press Start 2P', monospace;
+  --font-pixel-body: 'Pixelify Sans', sans-serif;
+  --font-pixel-mono: 'Silkscreen', monospace;
+}
+
+:root {
+  --background: #060e1a;
+  --foreground: #f1f5f9;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Pixelify Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Pixel Art crisp rendering */
+.pixelated {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* 8-Bit Pixel Borders (Nautical Slate & Gold) */
+.pixel-box {
+  box-shadow: 
+    -4px 0 0 0 #020617,
+    4px 0 0 0 #020617,
+    0 -4px 0 0 #020617,
+    0 4px 0 0 #020617,
+    -4px -4px 0 0 #020617,
+    -4px 4px 0 0 #020617,
+    4px -4px 0 0 #020617,
+    4px 4px 0 0 #020617;
+}
+
+.pixel-box-cyan {
+  box-shadow: 
+    -4px 0 0 0 #0284c7,
+    4px 0 0 0 #0284c7,
+    0 -4px 0 0 #0284c7,
+    0 4px 0 0 #0284c7,
+    -4px -4px 0 0 #0284c7,
+    -4px 4px 0 0 #0284c7,
+    4px -4px 0 0 #0284c7,
+    4px 4px 0 0 #0284c7;
+}
+
+.pixel-box-gold {
+  box-shadow: 
+    -4px 0 0 0 #b45309,
+    4px 0 0 0 #b45309,
+    0 -4px 0 0 #b45309,
+    0 4px 0 0 #b45309,
+    -4px -4px 0 0 #b45309,
+    -4px 4px 0 0 #b45309,
+    4px -4px 0 0 #b45309,
+    4px 4px 0 0 #b45309;
+}
+
+/* Retro Pixel Button with 3D tactile press */
+.pixel-btn-primary {
+  box-shadow: 0 4px 0 0 #0369a1, 0 6px 0 0 #020617;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.pixel-btn-primary:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 0 #0369a1, 0 2px 0 0 #020617;
+}
+
+.pixel-btn-gold {
+  box-shadow: 0 4px 0 0 #b45309, 0 6px 0 0 #020617;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.pixel-btn-gold:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 0 #b45309, 0 2px 0 0 #020617;
+}
+
+.pixel-btn-wood {
+  box-shadow: 0 4px 0 0 #334155, 0 6px 0 0 #020617;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.pixel-btn-wood:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 0 #334155, 0 2px 0 0 #020617;
+}
+
+/* Scanlines overlay effect for subtle CRT / arcade retro vibe */
+.scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 4px, 6px 100%;
+}
+
