@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import MusicPlayer from "@/components/ui/MusicPlayer";
 
 const geistSans = Geist({
@@ -33,8 +35,12 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#060e1a] text-slate-100 font-['Pixelify_Sans',sans-serif]">
-        {children}
+      <body className="min-h-full flex flex-col bg-[#060e1a] text-slate-100 font-['Pixelify_Sans',sans-serif] selection:bg-cyan-500 selection:text-black">
+        <Navbar />
+        <div className="flex-1 flex flex-col w-full">
+          {children}
+        </div>
+        <Footer />
         <MusicPlayer />
       </body>
     </html>

@@ -1,7 +1,62 @@
+"use client";
+
+import React from "react";
+import Link from "next/link";
+import { Anchor, Compass, Heart, Terminal, ArrowUp } from "lucide-react";
+
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="w-full border-t border-zinc-800 py-6 text-center text-sm text-zinc-500">
-      <p>&copy; {new Date().getFullYear()} My Portfolio. All rights reserved.</p>
+    <footer className="w-full bg-[#030811] border-t-2 border-cyan-800/40 text-slate-400 font-['Silkscreen',monospace] text-xs mt-auto">
+      <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Left Brand & Coordinates */}
+        <div className="space-y-1.5 text-center md:text-left">
+          <div className="flex items-center justify-center md:justify-start gap-2 font-['Press_Start_2P',monospace] text-[11px] text-cyan-300">
+            <Anchor className="w-3.5 h-3.5 text-amber-400" />
+            <span>S.S. CODECRAFT // PORT ABYAN</span>
+          </div>
+          <p className="text-[10px] text-slate-500">
+            LAT 06° 12&apos; S / LONG 106° 48&apos; E • BREEZE: 12 KNOTS • ALL SEAS CLEAR
+          </p>
+        </div>
+
+        {/* Center Quick Portals */}
+        <div className="flex flex-wrap items-center justify-center gap-4 text-[11px] text-slate-300">
+          <Link href="/" className="hover:text-cyan-300 transition-colors">
+            [ BRIDGE ]
+          </Link>
+          <Link href="/about" className="hover:text-cyan-300 transition-colors">
+            [ ABOUT ]
+          </Link>
+          <Link href="/skills" className="hover:text-cyan-300 transition-colors">
+            [ SKILLS ]
+          </Link>
+          <Link href="/projects" className="hover:text-cyan-300 transition-colors">
+            [ PROJECTS ]
+          </Link>
+          <Link href="/contact" className="hover:text-cyan-300 transition-colors">
+            [ CONTACT ]
+          </Link>
+        </div>
+
+        {/* Right Info & Scroll Up */}
+        <div className="flex items-center gap-4">
+          <span className="text-[10px] text-slate-400">
+            &copy; {new Date().getFullYear()} MUHAMMAD ABYAN HANIF
+          </span>
+          <button
+            onClick={scrollToTop}
+            className="p-2 bg-[#081526] border border-cyan-500/40 pixel-box text-cyan-300 hover:text-white hover:border-amber-400 transition-colors"
+            title="Return to deck surface"
+            aria-label="Back to top"
+          >
+            <ArrowUp className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      </div>
     </footer>
   );
 }

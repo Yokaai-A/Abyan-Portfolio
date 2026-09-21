@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { Volume2, VolumeX, Volume1, Music } from "lucide-react";
+import AudioVisualizer from "./AudioVisualizer";
 
 export default function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -16,7 +17,7 @@ export default function MusicPlayer() {
   useEffect(() => {
     const audio = new Audio("/assets/music/Salt_and_Morning_Gold.mp3");
     audio.loop = true;
-    audio.volume = volume;
+    audio.volume = 0.4;
     audioRef.current = audio;
 
     return () => {
@@ -152,33 +153,20 @@ export default function MusicPlayer() {
                 color: "#e2e8f0",
                 whiteSpace: "nowrap",
                 margin: 0,
-                animation: "marquee 8s linear infinite",
               }}
             >
               🎵 Salt and Morning Gold
             </p>
           </div>
 
-          {/* Pixel waveform visualizer */}
-          <div className="flex items-end gap-[3px] mb-4 h-8">
-            {Array.from({ length: 16 }).map((_, i) => (
-              <div
-                key={i}
-                style={{
-                  width: "6px",
-                  background:
-                    i % 3 === 0 ? "#0284c7" : i % 3 === 1 ? "#38bdf8" : "#facc15",
-                  imageRendering: "pixelated" as const,
-                  flexShrink: 0,
-                  animation:
-                    isPlaying && !isMuted
-                      ? `waveBar ${0.4 + (i % 5) * 0.15}s steps(4) infinite alternate`
-                      : "none",
-                  height: isPlaying && !isMuted ? undefined : "4px",
-                }}
-              />
-            ))}
-          </div>
+
+          {/* Audio Visualizer */}
+          <AudioVisualizer
+            audioRef={audioRef}
+            isPlaying={isPlaying}
+            isMuted={isMuted}
+            volume={volume}
+          />
 
           {/* Volume slider */}
           <div className="flex items-center gap-2 mb-3">

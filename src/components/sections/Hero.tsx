@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Compass,
@@ -265,24 +266,24 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="relative z-40 flex flex-wrap items-center justify-center gap-3 pt-1 font-['Press_Start_2P',monospace] text-[10px] sm:text-xs"
         >
-          <a
-            href="#projects"
+          <Link
+            href="/projects"
             onClick={() => playRetroSound("bell")}
             className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-b from-cyan-500 to-blue-700 text-white border-2 border-cyan-200 pixel-box pixel-btn-primary hover:brightness-110 active:translate-y-1"
           >
             <Compass className="w-3.5 h-3.5" />
             <span>VIEW PROJECTS</span>
             <ArrowRight className="w-3 h-3" />
-          </a>
+          </Link>
 
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             onClick={() => playRetroSound("bell")}
             className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-b from-slate-800 to-slate-950 text-cyan-200 border-2 border-slate-600 pixel-box pixel-btn-wood hover:text-white hover:border-cyan-400 active:translate-y-1"
           >
             <Mail className="w-3.5 h-3.5 text-amber-400" />
             <span>GET IN TOUCH</span>
-          </a>
+          </Link>
 
           <button
             onClick={handleCharacterClick}
