@@ -1,0 +1,46 @@
+.viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #155e75 #071526;
+  padding: 8px 4px 12px;
+}
+.track {
+  display: flex;
+  width: max-content;
+  animation: sail var(--voyage-duration, 60s) linear infinite;
+}
+.right { animation-direction: reverse; }
+.group {
+  display: flex;
+  flex-shrink: 0;
+  gap: 20px;
+  padding-right: 20px;
+}
+.card {
+  width: clamp(220px, 72vw, 296px);
+  flex-shrink: 0;
+}
+.viewport:hover .track,
+.viewport:focus-within .track,
+.modalOpen .track { animation-play-state: paused; }
+
+@keyframes sail {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Preserve the visible position when switching from animation to native scrolling. */
+.manual,
+.viewport:has(button:focus-visible) { overflow-x: auto; }
+.manual .track,
+.viewport:has(button:focus-visible) .track { animation: none; transform: none; }
+.viewport:has(button:focus-visible) .duplicate { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .viewport { overflow-x: auto; }
+  .track { animation: none; transform: none; }
+  .duplicate { display: none; }
+  .motionControl { display: none; }
+}

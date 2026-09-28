@@ -8,16 +8,15 @@ export default function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
-  const [volume, setVolume] = useState(0.4);
+  const [volume, setVolume] = useState(0.25);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [hasInteracted, setHasInteracted] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
 
   // Initialize audio
   useEffect(() => {
     const audio = new Audio("/assets/music/Salt_and_Morning_Gold.mp3");
     audio.loop = true;
-    audio.volume = 0.4;
+    audio.volume = 0.25;
     audioRef.current = audio;
 
     return () => {
@@ -33,30 +32,6 @@ export default function MusicPlayer() {
     audio.volume = isMuted ? 0 : volume;
   }, [volume, isMuted]);
 
-  // Auto-play on first user interaction with page
-  useEffect(() => {
-    if (hasInteracted) return;
-    const tryAutoplay = async () => {
-      try {
-        await audioRef.current?.play();
-        setIsPlaying(true);
-        setHasInteracted(true);
-      } catch {
-        // Blocked by browser — wait for user click
-      }
-    };
-    const onUserGesture = () => {
-      tryAutoplay();
-      window.removeEventListener("click", onUserGesture);
-      window.removeEventListener("keydown", onUserGesture);
-    };
-    window.addEventListener("click", onUserGesture);
-    window.addEventListener("keydown", onUserGesture);
-    return () => {
-      window.removeEventListener("click", onUserGesture);
-      window.removeEventListener("keydown", onUserGesture);
-    };
-  }, [hasInteracted]);
 
   // Close panel when clicking outside
   useEffect(() => {

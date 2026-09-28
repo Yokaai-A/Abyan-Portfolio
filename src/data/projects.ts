@@ -14,7 +14,7 @@ export const projects: Project[] = [
       "Tailored pixel borders and scanline shader aesthetic"
     ],
     demoUrl: "https://abyan-dev.vercel.app",
-    repoUrl: "https://github.com/abyanhanif/my-portfolio",
+    repoUrl: "https://github.com/Yokaai-A",
   },
   {
     id: "voyage-commerce",
@@ -29,7 +29,7 @@ export const projects: Project[] = [
       "Comprehensive merchant inventory and invoice tracking"
     ],
     demoUrl: "#",
-    repoUrl: "https://github.com/abyanhanif",
+    repoUrl: "https://github.com/Yokaai-A",
   },
   {
     id: "nautical-task-compass",
@@ -44,7 +44,7 @@ export const projects: Project[] = [
       "Exportable sprint expedition logs in markdown and PDF"
     ],
     demoUrl: "#",
-    repoUrl: "https://github.com/abyanhanif",
+    repoUrl: "https://github.com/Yokaai-A",
   },
   {
     id: "pixel-game-arcade",
@@ -59,7 +59,7 @@ export const projects: Project[] = [
       "Local storage & cloud leaderboard synchronization"
     ],
     demoUrl: "#",
-    repoUrl: "https://github.com/abyanhanif",
+    repoUrl: "https://github.com/Yokaai-A",
   },
   {
     id: "terminal-dev-tools",
@@ -74,6 +74,6 @@ export const projects: Project[] = [
       "One-command staging environment container deployment"
     ],
     demoUrl: "#",
-    repoUrl: "https://github.com/abyanhanif",
+    repoUrl: "https://github.com/Yokaai-A",
   },
 ];

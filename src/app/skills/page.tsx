@@ -1,204 +1,77 @@
-"use client";
-
-import React, { useState } from "react";
 import Link from "next/link";
-import { Anchor, Compass, Code, Database, Wrench, Layers, Sparkles, ArrowRight, Shield } from "lucide-react";
-import { techStack } from "@/data/techStack";
-
-type CategoryFilter = "all" | "frontend" | "backend" | "database" | "tools";
+import { Anchor, Compass, ArrowDown, ArrowRight, Monitor, Laptop, CodeXml } from "lucide-react";
+import SkillsInventory from "@/components/sections/TechStack";
 
 export default function SkillsPage() {
-  const [selectedCategory, setSelectedCategory] = useState<CategoryFilter>("all");
-
-  const playClickSound = () => {
-    try {
-      const AudioCtx =
-        window.AudioContext ||
-        (window as unknown as { webkitAudioContext: typeof AudioContext })
-          .webkitAudioContext;
-      if (!AudioCtx) return;
-      const ctx = new AudioCtx();
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      const now = ctx.currentTime;
-      osc.type = "square";
-      osc.frequency.setValueAtTime(520, now);
-      gain.gain.setValueAtTime(0.08, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
-      osc.start(now);
-      osc.stop(now + 0.1);
-    } catch {
-      // Audio context may be restricted
-    }
-  };
-
-  const filteredSkills =
-    selectedCategory === "all"
-      ? techStack
-      : techStack.filter((s) => s.category === selectedCategory);
-
-  const getCategoryIcon = (cat: string) => {
-    switch (cat) {
-      case "frontend":
-        return <Code className="w-4 h-4 text-cyan-400" />;
-      case "backend":
-        return <Layers className="w-4 h-4 text-amber-400" />;
-      case "database":
-        return <Database className="w-4 h-4 text-emerald-400" />;
-      case "tools":
-        return <Wrench className="w-4 h-4 text-sky-400" />;
-      default:
-        return <Shield className="w-4 h-4 text-slate-400" />;
-    }
-  };
-
   return (
-    <div className="relative min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-      {/* Background ambient glow */}
-      <div className="absolute top-24 right-1/4 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
-
-      {/* Page Header */}
-      <div className="mb-10 text-center space-y-3">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0b1b30] border border-cyan-500/60 pixel-box text-[11px] font-['Silkscreen',monospace] text-cyan-300">
-          <Anchor className="w-3.5 h-3.5 text-amber-400" />
-          <span>CAPTAIN&apos;S ARSENAL // SKILL INVENTORY</span>
+    <div className="relative min-h-screen pb-20">
+      <section className="relative isolate h-[max(880px,100svh)] pt-24" aria-label="Developer skills">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "linear-gradient(to bottom, rgba(6, 14, 26, 0.2) 0%, rgba(6, 14, 26, 0.2) 88%, #060e1a 100%), url('/assets/background/Background_Skills.png')",
+          }}
+        />
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flow-root">
+      <header className="mb-10 space-y-4 text-center">
+        <div className="inline-flex items-center gap-2 border border-cyan-500/60 bg-[#0b1b30] px-3 py-1 font-pixel-mono text-[11px] text-cyan-300 pixel-box">
+          <Anchor aria-hidden="true" className="h-3.5 w-3.5 text-amber-400" />
+          CAPTAIN&apos;S TOOLKIT
         </div>
         <h1 className="text-2xl sm:text-4xl font-extrabold font-['Press_Start_2P',monospace] text-white tracking-wide">
           DEV <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-cyan-300 to-sky-300">SKILLS</span>
         </h1>
-        <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto font-['Pixelify_Sans',sans-serif]">
-          Inspect my weapon loadout, technologies mastered across sea trials, and specialized developer craftsmanship.
+        <p className="font-pixel-body text-sm text-slate-300 sm:text-base">
+          Tools and technologies collected throughout the voyage.
         </p>
-      </div>
+      </header>
 
-      {/* Filter Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 font-['Silkscreen',monospace] text-xs">
-        {(
-          [
-            { id: "all", label: "ALL GEAR" },
-            { id: "frontend", label: "FRONTEND" },
-            { id: "backend", label: "BACKEND" },
-            { id: "database", label: "DATABASE" },
-            { id: "tools", label: "TOOLS & DEVOPS" },
-          ] as const
-        ).map((tab) => {
-          const isActive = selectedCategory === tab.id;
-          return (
-            <button
-              key={tab.id}
-              onClick={() => {
-                playClickSound();
-                setSelectedCategory(tab.id);
-              }}
-              className={`px-3 sm:px-4 py-2 pixel-box transition-all ${
-                isActive
-                  ? "bg-cyan-500/25 text-amber-300 border-2 border-amber-400 font-bold shadow-[0_0_12px_rgba(251,191,36,0.3)]"
-                  : "bg-[#071526]/80 text-slate-300 border border-slate-700 hover:text-cyan-300 hover:border-cyan-500"
-              }`}
-            >
-              {isActive ? `▶ [ ${tab.label} ]` : `[ ${tab.label} ]`}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Skills Inventory Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-14">
-        {filteredSkills.map((skill) => {
-          const level = skill.level ?? 80;
-          return (
-            <div
-              key={skill.name}
-              className="bg-[#071526]/90 border-2 border-slate-700/80 p-5 pixel-box flex flex-col justify-between hover:border-cyan-400 transition-all group shadow-lg"
-            >
-              <div className="space-y-3">
-                {/* Header: Icon + Name */}
-                <div className="flex items-start justify-between gap-2">
-                  <div className="flex items-center gap-2.5">
-                    <div className="p-1.5 bg-[#030914] border border-cyan-500/40 pixel-box">
-                      {getCategoryIcon(skill.category)}
-                    </div>
-                    <div>
-                      <h2 className="font-['Press_Start_2P',monospace] text-xs text-white group-hover:text-cyan-300 transition-colors">
-                        {skill.name}
-                      </h2>
-                      <span className="text-[10px] font-['Silkscreen',monospace] text-slate-400 uppercase">
-                        {skill.category}
-                      </span>
-                    </div>
-                  </div>
-
-                  <span className="font-['Press_Start_2P',monospace] text-[10px] text-amber-300">
-                    {level}%
-                  </span>
-                </div>
-
-                {/* Description */}
-                {skill.description && (
-                  <p className="text-xs text-slate-300 font-['Pixelify_Sans',sans-serif] leading-relaxed">
-                    {skill.description}
-                  </p>
-                )}
-              </div>
-
-              {/* Retro Stepped Progress Bar */}
-              <div className="mt-4 pt-3 border-t border-slate-800">
-                <div className="w-full bg-[#020610] h-3 border border-slate-700 p-0.5 pixel-box flex items-center">
-                  <div
-                    className="h-full bg-gradient-to-r from-cyan-500 via-sky-400 to-amber-400 transition-all duration-500"
-                    style={{ width: `${level}%` }}
-                  />
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Primary Gear & Captain's Workshop Deck */}
-      <div className="bg-[#071526]/90 border-2 border-slate-700/80 p-6 pixel-box mb-12 space-y-4 shadow-xl">
-        <div className="flex items-center gap-2 pb-2 border-b border-slate-800 font-['Press_Start_2P',monospace] text-xs text-amber-300">
-          <Sparkles className="w-4 h-4 text-yellow-300" />
-          <span>CAPTAIN&apos;S HARDWARE & RIGGING GEAR</span>
+      <SkillsInventory />
+        <a
+          href="#captains-workstation"
+          className="pixel-box absolute bottom-6 left-1/2 z-10 flex w-fit -translate-x-1/2 flex-row items-center gap-3 border border-cyan-400/70 bg-[#071526] px-5 py-3 font-pixel-mono text-[10px] text-cyan-200 transition-[transform,border-color,color] duration-200 hover:-translate-y-0.5 hover:border-amber-300 hover:text-amber-300 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300"
+        >
+          <span>SCROLL DOWN TO CONTINUE</span>
+          <ArrowDown aria-hidden="true" className="h-4 w-4 text-amber-300 motion-safe:animate-bounce motion-reduce:animate-none" />
+        </a>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs font-['Pixelify_Sans',sans-serif]">
-          <div className="p-3 bg-[#030914] border border-cyan-500/30 pixel-box space-y-1">
-            <span className="font-['Silkscreen',monospace] text-cyan-300 block text-[10px]">
-              [ RIG / WORKSTATION ]
-            </span>
-            <p className="text-slate-200">High-power UNIX & Windows hybrid environment</p>
-          </div>
-
-          <div className="p-3 bg-[#030914] border border-cyan-500/30 pixel-box space-y-1">
-            <span className="font-['Silkscreen',monospace] text-cyan-300 block text-[10px]">
-              [ HELM / EDITOR ]
-            </span>
-            <p className="text-slate-200">VS Code & Neovim with customized pixel shortcuts</p>
-          </div>
-
-          <div className="p-3 bg-[#030914] border border-cyan-500/30 pixel-box space-y-1">
-            <span className="font-['Silkscreen',monospace] text-cyan-300 block text-[10px]">
-              [ SHELL & TERMINAL ]
-            </span>
-            <p className="text-slate-200">Zsh / PowerShell with starship prompt & git automation</p>
-          </div>
-
-          <div className="p-3 bg-[#030914] border border-cyan-500/30 pixel-box space-y-1">
-            <span className="font-['Silkscreen',monospace] text-cyan-300 block text-[10px]">
-              [ AUDIO FREQUENCY ]
-            </span>
-            <p className="text-slate-200">Custom Web Audio synthesizer & 8-bit chip tunes</p>
-          </div>
+      <div className="mx-auto max-w-5xl px-4 pt-16 sm:px-6 sm:pt-20 lg:px-8">
+      <section id="captains-workstation" aria-labelledby="workstation-heading" className="mb-12 scroll-mt-8 space-y-6">
+        <header className="space-y-3 border-b border-cyan-900/60 pb-4">
+          <h2 id="workstation-heading" className="flex items-center gap-3 font-pixel text-xs leading-loose text-amber-300 sm:text-sm">
+            <Compass aria-hidden="true" className="h-5 w-5 shrink-0 text-cyan-300" />
+            CAPTAIN&apos;S WORKSTATION
+          </h2>
+          <p className="text-sm text-slate-400">The setup behind the voyage.</p>
+        </header>
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+          <article className="border border-cyan-800/60 bg-[#071526]/90 p-5 pixel-box">
+            <h3 className="mb-5 font-pixel-mono text-xs leading-relaxed text-cyan-300">[ SYSTEM / WORKSTATION ]</h3>
+            <ul className="space-y-4 text-sm text-slate-200">
+              <li className="flex items-center gap-3"><Monitor aria-hidden="true" className="h-5 w-5 text-cyan-400" />Windows</li>
+              <li className="flex items-center gap-3"><Laptop aria-hidden="true" className="h-5 w-5 text-cyan-400" />macOS</li>
+            </ul>
+            <p className="mt-6 text-xs text-slate-400">Primary operating environments</p>
+          </article>
+          <article className="border border-cyan-800/60 bg-[#071526]/90 p-5 pixel-box">
+            <h3 className="mb-5 font-pixel-mono text-xs leading-relaxed text-amber-300">[ HELM / EDITORS ]</h3>
+            <ul className="space-y-4 text-sm text-slate-200">
+              {["Visual Studio Code", "Kiro", "Antigravity"].map((editor) => (
+                <li key={editor} className="flex items-center gap-3"><CodeXml aria-hidden="true" className="h-5 w-5 text-amber-400" />{editor}</li>
+              ))}
+            </ul>
+            <p className="mt-6 text-xs text-slate-400">Editors used across the voyage</p>
+          </article>
         </div>
-      </div>
+      </section>
 
       {/* Navigation Footer CTA */}
       <div className="text-center bg-[#071526]/90 border-2 border-cyan-500/60 p-6 pixel-box space-y-4">
         <p className="font-['Press_Start_2P',monospace] text-xs text-amber-300">
-          SEE THESE WEAPONS IN ACTION?
+          SEE THESE TOOLS IN ACTION?
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3 font-['Press_Start_2P',monospace] text-[10px]">
           <Link
@@ -216,6 +89,7 @@ export default function SkillsPage() {
             <span>COMMISSION A QUEST</span>
           </Link>
         </div>
+      </div>
       </div>
     </div>
   );

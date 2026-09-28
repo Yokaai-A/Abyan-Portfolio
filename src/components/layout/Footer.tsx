@@ -1,8 +1,7 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
-import { Anchor, Compass, Heart, Terminal, ArrowUp } from "lucide-react";
+import { Anchor, ArrowUp } from "lucide-react";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -23,23 +22,27 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Center Quick Portals */}
+        {/* Social & Contact Links */}
         <div className="flex flex-wrap items-center justify-center gap-4 text-[11px] text-slate-300">
-          <Link href="/" className="hover:text-cyan-300 transition-colors">
-            [ BRIDGE ]
-          </Link>
-          <Link href="/about" className="hover:text-cyan-300 transition-colors">
-            [ ABOUT ]
-          </Link>
-          <Link href="/skills" className="hover:text-cyan-300 transition-colors">
-            [ SKILLS ]
-          </Link>
-          <Link href="/projects" className="hover:text-cyan-300 transition-colors">
-            [ PROJECTS ]
-          </Link>
-          <Link href="/contact" className="hover:text-cyan-300 transition-colors">
-            [ CONTACT ]
-          </Link>
+          <a
+            href="https://www.linkedin.com/in/muhammad-abyan-hanif-42217b326/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-cyan-300 transition-colors"
+          >
+            [ LINKEDIN ]
+          </a>
+          <a
+            href="https://github.com/Yokaai-A"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-cyan-300 transition-colors"
+          >
+            [ GITHUB ]
+          </a>
+          <a href="mailto:abyanhanif41@gmail.com" className="hover:text-cyan-300 transition-colors">
+            [ EMAIL ]
+          </a>
         </div>
 
         {/* Right Info & Scroll Up */}

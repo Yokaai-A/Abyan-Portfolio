@@ -52,7 +52,7 @@ export default function Home() {
       <Hero />
 
       {/* Voyage Portals Command Center */}
-      <section className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section id="voyage-directory" className="relative max-w-6xl mx-auto scroll-mt-20 px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-10 space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0b1b30] border border-cyan-500/60 pixel-box text-[11px] font-['Silkscreen',monospace] text-cyan-300">
             <Compass className="w-3.5 h-3.5 text-amber-400 animate-spin" style={{ animationDuration: "14s" }} />

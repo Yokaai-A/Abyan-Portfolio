@@ -79,9 +79,15 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="relative min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-      {/* Background ambient glow */}
-      <div className="absolute top-28 right-1/3 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+    <div className="relative isolate min-h-screen pb-20">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[900px] max-h-full bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "linear-gradient(to bottom, rgba(6, 14, 26, 0.3) 0%, rgba(6, 14, 26, 0.4) 65%, #060e1a 100%), url('/assets/background/Background_Contacts.png')",
+        }}
+      />
+      <div className="mx-auto max-w-5xl px-4 pt-24 sm:px-6 lg:px-8">
 
       {/* Page Header */}
       <div className="mb-10 text-center space-y-3">
@@ -113,20 +119,20 @@ export default function ContactPage() {
             <div className="space-y-3 pt-2 font-['Silkscreen',monospace] text-xs">
               {/* Email */}
               <a
-                href="mailto:abyanhanif@example.com"
+                href="mailto:abyanhanif41@gmail.com"
                 onClick={() => playMorseSound(600, 0.08)}
                 className="flex items-center gap-3 p-3 bg-[#030a14] border border-cyan-500/40 pixel-box hover:border-cyan-300 hover:bg-[#07172b] transition-colors group"
               >
                 <Mail className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
                 <div>
                   <div className="text-[9px] text-slate-400">ELECTRONIC DISPATCH</div>
-                  <div className="text-cyan-200 text-xs">abyanhanif@example.com</div>
+                  <div className="text-cyan-200 text-xs">abyanhanif41@gmail.com</div>
                 </div>
               </a>
 
               {/* GitHub */}
               <a
-                href="https://github.com/abyanhanif"
+                href="https://github.com/Yokaai-A"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => playMorseSound(700, 0.08)}
@@ -135,13 +141,13 @@ export default function ContactPage() {
                 <GithubIcon className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform" />
                 <div>
                   <div className="text-[9px] text-slate-400">CODE REPOSITORIES</div>
-                  <div className="text-slate-200 text-xs">github.com/abyanhanif</div>
+                  <div className="text-slate-200 text-xs">github.com/Yokaai-A</div>
                 </div>
               </a>
 
               {/* LinkedIn */}
               <a
-                href="https://linkedin.com/in/abyanhanif"
+                href="https://www.linkedin.com/in/muhammad-abyan-hanif-42217b326/"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => playMorseSound(800, 0.08)}
@@ -150,7 +156,7 @@ export default function ContactPage() {
                 <LinkedinIcon className="w-4 h-4 text-sky-400 group-hover:scale-110 transition-transform" />
                 <div>
                   <div className="text-[9px] text-slate-400">CREW NETWORK</div>
-                  <div className="text-slate-200 text-xs">linkedin.com/in/abyanhanif</div>
+                  <div className="text-slate-200 text-xs">linkedin.com/in/muhammad-abyan-hanif-42217b326</div>
                 </div>
               </a>
             </div>
@@ -284,6 +290,7 @@ export default function ContactPage() {
             )}
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

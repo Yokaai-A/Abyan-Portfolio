@@ -6,16 +6,14 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Compass,
   Anchor,
-  Sparkles,
   ArrowRight,
   Heart,
   Ship,
   Mail,
-  Volume2,
 } from "lucide-react";
 import BackgroundVideo from "@/components/ui/BackgroundVideo";
 
-// Natural, human, non-AI-slop nautical/developer dialogues
+// Natural, human nautical/developer dialogues
 const SHIP_DIALOGUES = [
   "Scanning the horizon for new pull requests.",
   "Full sails on Next.js and TypeScript!",
@@ -32,8 +30,7 @@ export default function Hero() {
   const [characterHearts, setCharacterHearts] = useState<{ id: number; x: number }[]>([]);
   const [showDialogue, setShowDialogue] = useState(true);
 
-  // Character roaming state
-  // Safe boundaries: 16% to 76% to account for the larger character width
+  // Character roaming state (safe bounds: 18% to 76%)
   const [charPosition, setCharPosition] = useState<number>(38);
   const [movementState, setMovementState] = useState<"idle" | "left" | "right">("idle");
   const [walkDuration, setWalkDuration] = useState<number>(3);
@@ -73,7 +70,7 @@ export default function Hero() {
         // Ship bell chime
         osc.type = "triangle";
         osc.frequency.setValueAtTime(659.25, now);
-        osc.frequency.setValueAtTime(880, now + 0.08);
+        osc.frequency.exponentialRampToValueAtTime(880, now + 0.08);
         gain.gain.setValueAtTime(0.12, now);
         gain.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
         osc.start(now);
@@ -89,11 +86,10 @@ export default function Hero() {
     let timeoutId: NodeJS.Timeout;
 
     const planNextMove = () => {
-      const idleTime = Math.random() * 2200 + 2600;
+      const idleTime = Math.random() * 2400 + 2600;
 
       timeoutId = setTimeout(() => {
-        // Bounds tailored for large character
-        const minBound = 16;
+        const minBound = 18;
         const maxBound = 76;
         let nextPos = Math.floor(Math.random() * (maxBound - minBound + 1)) + minBound;
 
@@ -133,17 +129,14 @@ export default function Hero() {
     isMovingRef.current = false;
   };
 
-  // Play the captain MP3 sound effect
+  // Play captain MP3 sound effect
   const playCaptainSound = useCallback(() => {
     try {
       if (!captainAudioRef.current) {
         captainAudioRef.current = new Audio("/assets/sound-effects/captain_sound.mp3");
       }
-      // Reset so rapid clicks always replay from the start
       captainAudioRef.current.currentTime = 0;
-      captainAudioRef.current.play().catch(() => {
-        // Browser may block autoplay until first user gesture — silently ignore
-      });
+      captainAudioRef.current.play().catch(() => {});
     } catch {
       // Audio not supported
     }
@@ -151,6 +144,7 @@ export default function Hero() {
 
   const handleCharacterClick = () => {
     setIsJumping(true);
+    playRetroSound("jump");
     setTimeout(() => setIsJumping(false), 500);
 
     setDialogueIndex((prev) => (prev + 1) % SHIP_DIALOGUES.length);
@@ -175,17 +169,33 @@ export default function Hero() {
     return "/assets/characters/Idle_breathing-idle_south.gif";
   };
 
+  const scrollToCabins = (e?: React.MouseEvent) => {
+    if (e) e.preventDefault();
+    playRetroSound("bell");
+    const target = document.getElementById("voyage-directory");
+    if (target) {
+      const navOffset = 70;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <section
       id="hero"
-      className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden pt-20 sm:pt-24 pb-4 px-4 md:px-8 select-none"
+      aria-label="Main deck hero section"
+      className="relative min-h-[92vh] sm:min-h-screen w-full flex flex-col justify-between overflow-hidden pt-24 sm:pt-28 pb-6 px-4 md:px-8 select-none"
     >
       {/* 
         PIXEL BACKGROUND VIDEO:
-        Guaranteed continuous autoplaying & looping mp4 of ship deck overlooking the sea
+        Continuous looping pixel art ship deck overlooking the sea
       */}
       <div className="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
-        {/* Ping-pong background: forward → reverse → forward → … */}
         <BackgroundVideo className="w-full h-full object-cover object-bottom pixelated scale-100" />
 
         {/* Ambient Sea Gradient Overlay */}
@@ -204,7 +214,7 @@ export default function Hero() {
 
       {/* 
         TOP / MIDDLE SECTION:
-        Layered at z-30 with clean spacing so the walking character & chat never block buttons!
+        Clean typography and pixel framing, completely matching the whole website
       */}
       <div className="relative max-w-4xl w-full mx-auto flex flex-col items-center text-center space-y-4 z-30 pt-2 sm:pt-4 pointer-events-auto">
 
@@ -213,11 +223,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1 bg-[#0b1b30]/90 border border-cyan-500/60 pixel-box shadow-lg text-[11px] font-['Silkscreen',monospace] text-cyan-300"
+          className="inline-flex items-center gap-2 px-3 py-1 bg-[#0b1b30]/90 border border-cyan-500/60 pixel-box shadow-lg text-[10px] sm:text-[11px] font-['Silkscreen',monospace] text-cyan-300"
         >
-          <Anchor className="w-3.5 h-3.5 text-cyan-400 animate-bounce" />
+          <Anchor className="w-3.5 h-3.5 text-amber-400 animate-bounce" />
           <span className="tracking-wider">S.S. CODECRAFT // MAIN DECK</span>
-          <span className="w-2 h-2 bg-emerald-400 rounded-none animate-ping" />
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-none bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex w-2 h-2 bg-emerald-400" />
+          </span>
         </motion.div>
 
         {/* Name & Title */}
@@ -233,32 +246,33 @@ export default function Hero() {
           </div>
 
           <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-wide font-['Press_Start_2P',monospace] text-white leading-tight drop-shadow-[0_4px_0_#020617]">
-            MUHAMMAD <br />
+            MUHAMMAD <br className="sm:hidden" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-amber-300">
               ABYAN HANIF
             </span>
           </h1>
 
           <div className="pt-0.5 flex items-center justify-center gap-2 font-['Silkscreen',monospace] text-cyan-200 text-xs sm:text-sm">
-            <Ship className="w-3.5 h-3.5 text-cyan-400 inline" />
-            <span>SOFTWARE ENGINEER & CREATIVE DEVELOPER</span>
+            <Ship className="w-3.5 h-3.5 text-amber-400 inline" />
+            <span>SOFTWARE ENGINEER & FULLSTACK DEVELOPER</span>
           </div>
         </motion.div>
 
-        {/* Clean, Non-AI-Slop Bio */}
+        {/* Bio Card in pixel-box */}
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-slate-200 text-sm sm:text-base max-w-xl leading-relaxed font-['Pixelify_Sans',sans-serif] bg-[#071526]/80 px-4 py-2.5 border-2 border-slate-700/80 pixel-box shadow-xl"
+          className="text-slate-200 text-xs sm:text-sm md:text-base max-w-xl leading-relaxed font-['Pixelify_Sans',sans-serif] bg-[#071526]/85 px-5 py-3 border-2 border-slate-700/80 pixel-box shadow-xl text-center"
         >
-          Building fast web apps, clean interfaces, and interactive retro experiences
-          from the captain&apos;s deck. Open for projects, quests & collaborations.
+          Building clean, intuitive, and reliable web & mobile applications from the
+          captain&apos;s deck, with a focus on thoughtful engineering, maintainable code, and 
+          meaningful digital experiences built to sail beyond the horizon.
         </motion.p>
 
         {/* 
           ACTION BUTTONS:
-          Dedicated high z-index and isolated from the roaming zone below.
+          Tactile 8-bit retro buttons matching the whole site
         */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -269,7 +283,7 @@ export default function Hero() {
           <Link
             href="/projects"
             onClick={() => playRetroSound("bell")}
-            className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-b from-cyan-500 to-blue-700 text-white border-2 border-cyan-200 pixel-box pixel-btn-primary hover:brightness-110 active:translate-y-1"
+            className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-b from-cyan-500 to-blue-700 text-white border-2 border-cyan-200 pixel-box pixel-btn-primary hover:brightness-110 active:translate-y-1 transition-all"
           >
             <Compass className="w-3.5 h-3.5" />
             <span>VIEW PROJECTS</span>
@@ -279,28 +293,19 @@ export default function Hero() {
           <Link
             href="/contact"
             onClick={() => playRetroSound("bell")}
-            className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-b from-slate-800 to-slate-950 text-cyan-200 border-2 border-slate-600 pixel-box pixel-btn-wood hover:text-white hover:border-cyan-400 active:translate-y-1"
+            className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-b from-slate-800 to-slate-950 text-cyan-200 border-2 border-slate-600 pixel-box pixel-btn-wood hover:text-white hover:border-cyan-400 active:translate-y-1 transition-all"
           >
             <Mail className="w-3.5 h-3.5 text-amber-400" />
             <span>GET IN TOUCH</span>
           </Link>
 
-          <button
-            onClick={handleCharacterClick}
-            className="inline-flex items-center justify-center gap-2 px-3.5 py-3 bg-gradient-to-b from-amber-600 to-amber-800 text-amber-100 border-2 border-amber-300 pixel-box pixel-btn-gold hover:brightness-110 active:translate-y-1"
-            title="Interact with Captain Abyan"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-yellow-300 animate-pulse" />
-            <span>POKE CAPTAIN</span>
-          </button>
         </motion.div>
       </div>
 
       {/* 
-        BOTTOM RUNWAY: ENLARGED (2X+) FREE-ROAMING CHARACTER
+        BOTTOM RUNWAY: FREE-ROAMING CHARACTER ON THE SHIP DECK
         Smart Side Speech Bubble:
-        The chat box is anchored to the SIDE of the character (not on top of the head),
-        so it never rises into the buttons area!
+        Anchored to the SIDE of the character so it never blocks the action buttons above!
       */}
       <div className="relative w-full max-w-6xl mx-auto h-48 sm:h-56 md:h-64 z-20 pointer-events-none mt-2">
         <motion.div
@@ -330,11 +335,7 @@ export default function Hero() {
             ))}
           </AnimatePresence>
 
-          {/* 
-            SMART SIDE SPEECH BUBBLE:
-            Positioned at shoulder/side level (left or right depending on screen side).
-            This guarantees it stays in the lower deck runway and NEVER blocks the action buttons above!
-          */}
+          {/* Smart Side Speech Bubble */}
           <AnimatePresence>
             {showDialogue && (
               <motion.div
@@ -342,32 +343,33 @@ export default function Hero() {
                 animate={{ opacity: 1, scale: 1, x: 0 }}
                 exit={{ opacity: 0, scale: 0.85 }}
                 transition={{ duration: 0.2 }}
-                className={`absolute top-10 sm:top-12 z-30 px-3.5 py-2 bg-[#040a14]/95 border-2 border-cyan-400 text-cyan-100 pixel-box shadow-2xl text-xs w-52 sm:w-60 md:w-64 font-['Pixelify_Sans',sans-serif] pointer-events-auto ${charPosition > 50
-                  ? "right-full mr-3 sm:mr-4"
-                  : "left-full ml-3 sm:ml-4"
-                  }`}
+                className={`absolute top-10 sm:top-12 z-30 px-3.5 py-2 bg-[#040a14]/95 border-2 border-cyan-400 text-cyan-100 pixel-box shadow-2xl text-xs w-52 sm:w-60 md:w-64 font-['Pixelify_Sans',sans-serif] pointer-events-auto ${
+                  charPosition > 50
+                    ? "right-full mr-3 sm:mr-4"
+                    : "left-full ml-3 sm:ml-4"
+                }`}
               >
                 <div className="flex items-center justify-between pb-1 mb-1 border-b border-cyan-900/60 text-[9px] font-['Silkscreen',monospace] text-amber-400">
                   <span>[ CAPTAIN ABYAN ]</span>
                   <span className="text-slate-400 text-[8px]">● CHAT</span>
                 </div>
-                <p className="leading-snug text-slate-100 text-xs sm:text-sm">{SHIP_DIALOGUES[dialogueIndex]}</p>
+                <p className="leading-snug text-slate-100 text-xs sm:text-sm">
+                  {SHIP_DIALOGUES[dialogueIndex]}
+                </p>
 
-                {/* Pointer Arrow pointing toward character side */}
+                {/* Pointer Arrow */}
                 <div
-                  className={`absolute top-4 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ${charPosition > 50
-                    ? "-right-2 border-l-[8px] border-l-cyan-400"
-                    : "-left-2 border-r-[8px] border-r-cyan-400"
-                    }`}
+                  className={`absolute top-4 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ${
+                    charPosition > 50
+                      ? "-right-2 border-l-[8px] border-l-cyan-400"
+                      : "-left-2 border-r-[8px] border-r-cyan-400"
+                  }`}
                 />
               </motion.div>
             )}
           </AnimatePresence>
 
-          {/* 
-            ENLARGED PIXEL CHARACTER SPRITE (2X+ SCALE):
-            w-44 on mobile, w-56 on tablet, w-60 on desktop!
-          */}
+          {/* Pixel Character Sprite */}
           <motion.div
             animate={
               isJumping
@@ -393,20 +395,6 @@ export default function Hero() {
             />
           </motion.div>
 
-          {/* Deck Ground Shadow */}
-          <motion.div
-            animate={
-              isJumping
-                ? { scale: [1, 0.4, 1], opacity: [0.7, 0.2, 0.7] }
-                : { scale: [1, 0.88, 1], opacity: [0.7, 0.6, 0.7] }
-            }
-            transition={
-              isJumping
-                ? { duration: 0.44, ease: "easeInOut" }
-                : { repeat: Infinity, duration: 2, ease: "easeInOut" }
-            }
-            className="w-28 sm:w-36 h-3 bg-black/85 rounded-none -mt-2 pixel-box"
-          />
 
           {/* State Tag */}
           <div className="mt-1 px-2 py-0.5 bg-[#0b1b30]/90 border border-slate-700 text-[9px] font-['Silkscreen',monospace] text-amber-300 pixel-box">
@@ -417,10 +405,22 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Subtle Bottom Horizon Fade */}
+      {/* Clean Bottom Navigation Hint to Voyage Directory */}
+      <div className="relative z-30 flex justify-center pb-1">
+        <button
+          type="button"
+          onClick={scrollToCabins}
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#071526]/90 border border-slate-700/80 hover:border-cyan-400 active:border-amber-400 pixel-box font-['Silkscreen',monospace] text-[10px] text-slate-300 hover:text-amber-300 active:translate-y-0.5 transition-all cursor-pointer shadow-md group"
+          title="Scroll down to cabin directory"
+          aria-label="Explore cabins"
+        >
+          <span className="tracking-wider">EXPLORE CABINS</span>
+          <span className="text-amber-400 group-hover:translate-y-0.5 transition-transform animate-bounce">↓</span>
+        </button>
+      </div>
+
+      {/* Subtle Bottom Horizon Fade into Voyage Directory */}
       <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-[#060e1a] to-transparent pointer-events-none" />
     </section>
   );
 }
-
-

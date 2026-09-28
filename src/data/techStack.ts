@@ -1,29 +1,26 @@
-import { TechStackItem } from "@/types";
+import type { TechStackItem } from "@/types";
 
+// Add a name, category, and optional local SVG icon path. No ratings or detail panel fields.
 export const techStack: TechStackItem[] = [
   // Frontend
-  { name: "TypeScript", category: "frontend", level: 92, description: "Type-safe robust frontend & backend applications" },
-  { name: "React", category: "frontend", level: 95, description: "Component-driven interfaces & modern hooks architecture" },
-  { name: "Next.js", category: "frontend", level: 90, description: "Server components, App Router, SSR, and ISR" },
-  { name: "Tailwind CSS", category: "frontend", level: 95, description: "Modern utility-first responsive styling and animations" },
-  { name: "Framer Motion", category: "frontend", level: 85, description: "Smooth micro-interactions, spring physics & transitions" },
-  { name: "HTML5 / Canvas", category: "frontend", level: 88, description: "Pixel rendering, Web Audio visualizers & 2D graphics" },
+  { name: "TypeScript", icon: "/assets/icons/skills/typescript.svg", category: "frontend" },
+  { name: "React", icon: "/assets/icons/skills/react.svg", category: "frontend" },
+  { name: "Next.js", icon: "/assets/icons/skills/nextdotjs.svg", category: "frontend" },
+  { name: "Tailwind CSS", icon: "/assets/icons/skills/tailwindcss.svg", category: "frontend" },
+  { name: "Framer Motion", icon: "/assets/icons/skills/framer.svg", category: "frontend" },
+  { name: "HTML5 / Canvas", icon: "/assets/icons/skills/html5.svg", category: "frontend" },
+  { name: "JavaScript", icon: "/assets/icons/skills/javascript.svg", category: "frontend" },
 
   // Backend
-  { name: "Node.js", category: "backend", level: 88, description: "Event-driven asynchronous backend runtime" },
-  { name: "Express.js", category: "backend", level: 85, description: "RESTful API services and middleware architecture" },
-  { name: "NestJS", category: "backend", level: 80, description: "Enterprise scalable modular architecture with TypeScript" },
-  { name: "REST / GraphQL", category: "backend", level: 84, description: "Clean API contract design & client querying" },
+  { name: "Node.js", icon: "/assets/icons/skills/nodedotjs.svg", category: "backend" },
+  { name: "NestJS", icon: "/assets/icons/skills/nestjs.svg", category: "backend" },
 
   // Database
-  { name: "PostgreSQL", category: "database", level: 85, description: "Relational database modeling, indexing & optimization" },
-  { name: "Prisma ORM", category: "database", level: 88, description: "Type-safe database client and automated migrations" },
-  { name: "Redis", category: "database", level: 78, description: "In-memory caching and session management" },
-  { name: "MongoDB", category: "database", level: 80, description: "Document-oriented database for flexible schemas" },
+  { name: "PostgreSQL", icon: "/assets/icons/skills/postgresql.svg", category: "database" },
 
   // Tools & DevOps
-  { name: "Git & GitHub", category: "tools", level: 92, description: "Version control, branching strategies, and CI/CD actions" },
-  { name: "Docker", category: "tools", level: 78, description: "Containerization and reproducible environments" },
-  { name: "Linux / Bash", category: "tools", level: 82, description: "Server administration, scripting, and deployment" },
-  { name: "Vite / Webpack", category: "tools", level: 85, description: "Bundler configuration, optimization, and hot reload" },
+  { name: "Git & GitHub", icon: "/assets/icons/skills/git.svg", category: "tools" },
+  { name: "Docker", icon: "/assets/icons/skills/docker.svg", category: "tools" },
+  { name: "Figma", icon: "/assets/icons/skills/figma.svg", category: "tools" },
+  { name: "Canva", icon: "/assets/icons/skills/canva.svg", category: "tools" },
 ];

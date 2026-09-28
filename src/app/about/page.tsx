@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Anchor, Compass, Award, Clock, MapPin, Sparkles, Terminal, ArrowRight, ShieldCheck } from "lucide-react";
-import { experiences } from "@/data/experiences";
+import { Anchor, Compass, Sparkles, Terminal, ArrowRight, ShieldCheck } from "lucide-react";
+import ExperienceSection from "@/components/sections/Experience";
+import ProfilePhoto from "@/components/ui/ProfilePhoto";
 
 export const metadata: Metadata = {
   title: "About Captain Abyan | Pixel Portfolio ⚓",
@@ -10,9 +11,16 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="relative min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-      {/* Background ambient glow */}
-      <div className="absolute top-20 left-1/3 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+    <div className="relative min-h-screen pb-20">
+      <section className="relative isolate px-4 pt-24 pb-12 sm:px-6 lg:px-8" aria-label="About Abyan">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-top bg-no-repeat"
+          style={{
+            backgroundImage: "linear-gradient(to bottom, rgba(6, 14, 26, 0.45) 0%, rgba(6, 14, 26, 0.55) 70%, #060e1a 100%), url('/assets/background/About_Me_Background.png')",
+          }}
+        />
+        <div className="max-w-5xl mx-auto">
 
       {/* Page Header */}
       <div className="mb-10 text-center space-y-3">
@@ -29,49 +37,43 @@ export default function AboutPage() {
       </div>
 
       {/* Captain Profile Card & Stats HUD */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-6">
         {/* Profile Avatar & Class Box */}
         <div className="bg-[#071526]/90 border-2 border-cyan-500/50 p-6 pixel-box flex flex-col items-center text-center space-y-4 shadow-xl">
-          <div className="relative w-36 h-36 bg-[#040c17] border-2 border-cyan-400/80 pixel-box flex items-center justify-center overflow-hidden group">
-            <div className="absolute inset-0 scanlines opacity-40 pointer-events-none" />
-            <img
-              src="/assets/characters/Idle_breathing-idle_south.gif"
-              alt="Captain Abyan Pixel"
-              className="w-28 h-28 pixelated transition-transform group-hover:scale-110"
-            />
-          </div>
+          <ProfilePhoto />
 
           <div>
             <h2 className="font-['Press_Start_2P',monospace] text-sm text-amber-300">
-              ABYAN HANIF
+              MUHAMMAD ABYAN HANIF
             </h2>
             <p className="text-xs font-['Silkscreen',monospace] text-cyan-300 mt-1">
-              LV. 24 FULLSTACK NAVIGATOR
+              CS STUDENT // SOFTWARE ENGINEER
             </p>
           </div>
 
-          <div className="w-full pt-3 border-t border-cyan-900/60 text-left text-xs font-['Pixelify_Sans',sans-serif] space-y-2">
-            <div className="flex justify-between items-center text-slate-300">
-              <span className="text-slate-400">Class:</span>
-              <span className="font-semibold text-cyan-200">Creative Engineer</span>
-            </div>
-            <div className="flex justify-between items-center text-slate-300">
-              <span className="text-slate-400">Home Port:</span>
-              <span className="font-semibold text-cyan-200">Indonesia</span>
-            </div>
-            <div className="flex justify-between items-center text-slate-300">
-              <span className="text-slate-400">Focus:</span>
-              <span className="font-semibold text-cyan-200">React • Next.js • TS</span>
-            </div>
-            <div className="flex justify-between items-center text-slate-300">
-              <span className="text-slate-400">Status:</span>
-              <span className="text-emerald-400 font-semibold">Ready for Quests</span>
-            </div>
-          </div>
+          <dl className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-3 gap-y-2 w-full pt-3 border-t border-cyan-900/60 text-left text-xs leading-relaxed font-['Pixelify_Sans',sans-serif]">
+            <dt className="text-slate-400">University:</dt>
+            <dd className="font-semibold text-cyan-200">BINUS University</dd>
+
+            <dt className="text-slate-400">Interests:</dt>
+            <dd className="font-semibold text-cyan-200">
+              <span className="block">Software Engineering</span>
+              <span className="block">Full-Stack Development</span>
+            </dd>
+
+            <dt className="text-slate-400">Focus:</dt>
+            <dd className="font-semibold text-cyan-200">Web &amp; Mobile Development</dd>
+
+            <dt className="text-slate-400">Based in:</dt>
+            <dd className="font-semibold text-cyan-200">Indonesia</dd>
+
+            <dt className="text-slate-400">Status:</dt>
+            <dd className="text-emerald-400 font-semibold">Ready for Quests</dd>
+          </dl>
         </div>
 
         {/* Narrative Biography & Story */}
-        <div className="md:col-span-2 bg-[#071526]/90 border-2 border-slate-700/80 p-6 pixel-box flex flex-col justify-between shadow-xl">
+        <div className="bg-[#071526]/90 border-2 border-slate-700/80 p-6 pixel-box flex flex-col justify-between shadow-xl">
           <div className="space-y-4 text-slate-200 text-sm sm:text-base leading-relaxed">
             <div className="flex items-center gap-2 font-['Silkscreen',monospace] text-xs text-amber-400 pb-2 border-b border-slate-800">
               <Terminal className="w-4 h-4 text-cyan-400" />
@@ -79,26 +81,26 @@ export default function AboutPage() {
             </div>
 
             <p>
-              Ahoy! I&apos;m <strong className="text-cyan-300">Muhammad Abyan Hanif</strong>, a software engineer with an unwavering passion for building fast, intuitive, and visually memorable digital products.
+              Ahoy! I&apos;m <strong className="text-cyan-300">Muhammad Abyan Hanif</strong>, a Computer Science student at Bina Nusantara University with a strong interest in Software Engineering and Full-Stack Development. I focus on building web and mobile applications that are functional, intuitive, and designed around real user needs.
             </p>
 
             <p>
-              I treat every project like preparing a sturdy ship before sailing out to the open ocean: solid architectural foundations, reliable type safety with TypeScript, crisp pixel-precise styling, and seamless user experiences that keep visitors engaged.
+              I enjoy working across different layers of development, from crafting responsive user interfaces to designing application logic and backend systems. I approach each project with an emphasis on clean, readable, and maintainable code, while keeping scalability and good software architecture in mind.
             </p>
 
             <p>
-              Whether crafting dynamic Next.js web applications, building custom Web Audio synthesizers, or fine-tuning database schemas, I combine engineering rigor with playful retro aesthetics.
+              I&apos;m constantly exploring new technologies and improving the way I build software. For me, development isn&apos;t just about making things work—it&apos;s about creating reliable and meaningful digital experiences while continuously growing as an engineer.
             </p>
           </div>
 
           {/* Quick HUD Metrics */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 mt-4 border-t border-slate-800 font-['Silkscreen',monospace] text-center">
             <div className="p-2.5 bg-[#030a14] border border-cyan-500/40 pixel-box">
-              <div className="text-base sm:text-lg font-bold text-amber-300">3+</div>
+              <div className="text-base sm:text-lg font-bold text-amber-300">2.5+</div>
               <div className="text-[10px] text-slate-400">YEARS SAILING</div>
             </div>
             <div className="p-2.5 bg-[#030a14] border border-cyan-500/40 pixel-box">
-              <div className="text-base sm:text-lg font-bold text-cyan-300">20+</div>
+              <div className="text-base sm:text-lg font-bold text-cyan-300">7+</div>
               <div className="text-[10px] text-slate-400">EXPEDITIONS</div>
             </div>
             <div className="p-2.5 bg-[#030a14] border border-cyan-500/40 pixel-box">
@@ -113,100 +115,58 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Experience & Voyage Milestones Timeline */}
-      <div className="mb-14 space-y-6">
-        <div className="flex items-center gap-3 pb-2 border-b-2 border-cyan-700/50">
-          <Compass className="w-5 h-5 text-amber-400" />
-          <h2 className="font-['Press_Start_2P',monospace] text-sm sm:text-base text-white">
-            VOYAGE LOGBOOK // EXPERIENCE
-          </h2>
         </div>
+      </section>
 
-        <div className="space-y-6">
-          {experiences.map((exp, index) => (
-            <div
-              key={exp.id}
-              className="relative pl-6 sm:pl-8 border-l-2 border-cyan-500/50 space-y-3 group"
-            >
-              {/* Anchor milestone flag on the timeline */}
-              <div className="absolute -left-[9px] top-1 w-4 h-4 bg-[#060e1a] border-2 border-amber-400 rounded-none flex items-center justify-center group-hover:bg-amber-400 transition-colors">
-                <span className="w-1.5 h-1.5 bg-cyan-300 inline-block" />
-              </div>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ExperienceSection />
 
-              <div className="bg-[#071526]/85 border border-slate-700 p-5 pixel-box space-y-3 hover:border-cyan-400 transition-colors">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                  <div>
-                    <h3 className="font-['Press_Start_2P',monospace] text-xs sm:text-sm text-cyan-200">
-                      {exp.role}
-                    </h3>
-                    <p className="text-xs font-['Silkscreen',monospace] text-amber-300 mt-1">
-                      {exp.company}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2 text-[11px] font-['Silkscreen',monospace] text-slate-400">
-                    <Clock className="w-3.5 h-3.5 text-cyan-400" />
-                    <span>{exp.period}</span>
-                  </div>
-                </div>
-
-                <ul className="space-y-1.5 text-slate-300 text-xs sm:text-sm list-disc list-inside">
-                  {exp.description.map((desc, idx) => (
-                    <li key={idx} className="leading-relaxed">
-                      {desc}
-                    </li>
-                  ))}
-                </ul>
-
-                {exp.skills && (
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {exp.skills.map((skill) => (
-                      <span
-                        key={skill}
-                        className="px-2 py-0.5 bg-[#030914] border border-cyan-500/30 text-[10px] font-['Silkscreen',monospace] text-cyan-300"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Voyage Core Philosophies */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
-        <div className="bg-[#071526]/80 border border-slate-700 p-4 pixel-box space-y-2">
-          <div className="flex items-center gap-2 text-cyan-300 font-['Press_Start_2P',monospace] text-[10px]">
-            <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span>CLEAN CODE</span>
+      {/* Captain's Code: development principles */}
+      <section aria-labelledby="captains-code-heading" className="mb-14 pt-4 sm:mb-16 sm:pt-6">
+        <header className="mb-6 space-y-3 border-b border-cyan-800/60 pb-5">
+          <div className="flex items-center gap-3">
+            <Anchor aria-hidden="true" className="h-5 w-5 shrink-0 text-amber-400" />
+            <h2 id="captains-code-heading" className="font-pixel text-xs leading-loose text-amber-300 sm:text-base">
+              CAPTAIN&apos;S CODE
+            </h2>
           </div>
-          <p className="text-xs text-slate-300 leading-relaxed font-['Pixelify_Sans',sans-serif]">
-            Codebases built to endure rough waters: maintainable, type-safe, and self-documenting.
+          <p className="font-pixel-body text-sm text-slate-400 sm:text-base">
+            Principles that guide the way I build and explore.
           </p>
-        </div>
+        </header>
 
-        <div className="bg-[#071526]/80 border border-slate-700 p-4 pixel-box space-y-2">
-          <div className="flex items-center gap-2 text-amber-300 font-['Press_Start_2P',monospace] text-[10px]">
-            <Sparkles className="w-4 h-4 text-amber-400" />
-            <span>RETRO CHARM</span>
-          </div>
-          <p className="text-xs text-slate-300 leading-relaxed font-['Pixelify_Sans',sans-serif]">
-            Blending modern web performance with authentic nostalgic game aesthetics and rich audio.
-          </p>
-        </div>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <article className="group min-w-0 space-y-3 border border-slate-700 bg-[#071526]/80 p-4 shadow-[3px_3px_0_#020617] transition-[transform,border-color,box-shadow] duration-200 hover:border-cyan-400/80 hover:shadow-[3px_3px_0_#020617,0_0_12px_#22d3ee14] motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none">
+            <h3 className="flex items-center gap-2 font-pixel text-[10px] leading-relaxed text-cyan-300">
+              <ShieldCheck aria-hidden="true" className="h-4 w-4 shrink-0 text-cyan-400 transition-colors duration-200 group-hover:text-cyan-200 motion-reduce:transition-none" />
+              CLEAN CODE
+            </h3>
+            <p className="font-pixel-body text-sm leading-relaxed text-slate-300">
+              Building maintainable, structured, and self-documenting code.
+            </p>
+          </article>
 
-        <div className="bg-[#071526]/80 border border-slate-700 p-4 pixel-box space-y-2">
-          <div className="flex items-center gap-2 text-cyan-300 font-['Press_Start_2P',monospace] text-[10px]">
-            <Compass className="w-4 h-4 text-cyan-400" />
-            <span>NEW HORIZONS</span>
-          </div>
-          <p className="text-xs text-slate-300 leading-relaxed font-['Pixelify_Sans',sans-serif]">
-            Constantly adopting newer frameworks, performance patterns, and creative capabilities.
-          </p>
+          <article className="group min-w-0 space-y-3 border border-slate-700 bg-[#071526]/80 p-4 shadow-[3px_3px_0_#020617] transition-[transform,border-color,box-shadow] duration-200 hover:border-amber-400/80 hover:shadow-[3px_3px_0_#020617,0_0_12px_#fbbf2414] motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none">
+            <h3 className="flex items-center gap-2 font-pixel text-[10px] leading-relaxed text-amber-300">
+              <Sparkles aria-hidden="true" className="h-4 w-4 shrink-0 text-amber-400 transition-colors duration-200 group-hover:text-amber-200 motion-reduce:transition-none" />
+              USER FOCUSED
+            </h3>
+            <p className="font-pixel-body text-sm leading-relaxed text-slate-300">
+              Creating intuitive experiences around real user needs.
+            </p>
+          </article>
+
+          <article className="group min-w-0 space-y-3 border border-slate-700 bg-[#071526]/80 p-4 shadow-[3px_3px_0_#020617] transition-[transform,border-color,box-shadow] duration-200 hover:border-cyan-400/80 hover:shadow-[3px_3px_0_#020617,0_0_12px_#22d3ee14] motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none">
+            <h3 className="flex items-center gap-2 font-pixel text-[10px] leading-relaxed text-cyan-300">
+              <Compass aria-hidden="true" className="h-4 w-4 shrink-0 text-cyan-400 transition-colors duration-200 group-hover:text-cyan-200 motion-reduce:transition-none" />
+              NEW HORIZONS
+            </h3>
+            <p className="font-pixel-body text-sm leading-relaxed text-slate-300">
+              Continuously learning new technologies, patterns, and approaches.
+            </p>
+          </article>
         </div>
-      </div>
+      </section>
 
       {/* Navigation Footer CTA */}
       <div className="text-center bg-[#071526]/90 border-2 border-cyan-500/60 p-6 pixel-box space-y-4">
@@ -228,6 +188,7 @@ export default function AboutPage() {
             <span>SEND TELEGRAPH</span>
           </Link>
         </div>
+      </div>
       </div>
     </div>
   );

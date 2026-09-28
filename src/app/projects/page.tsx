@@ -63,9 +63,15 @@ export default function ProjectsPage() {
       : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <div className="relative min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-      {/* Background ambient glow */}
-      <div className="absolute top-28 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
+    <div className="relative isolate min-h-screen pb-20">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[900px] max-h-full bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "linear-gradient(to bottom, rgba(6, 14, 26, 0.2) 0%, rgba(6, 14, 26, 0.3) 65%, #060e1a 100%), url('/assets/background/Background_Projects.png')",
+        }}
+      />
+      <div className="mx-auto max-w-6xl px-4 pt-24 sm:px-6 lg:px-8">
 
       {/* Page Header */}
       <div className="mb-10 text-center space-y-3">
@@ -236,6 +242,7 @@ export default function ProjectsPage() {
             <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
+      </div>
       </div>
     </div>
   );

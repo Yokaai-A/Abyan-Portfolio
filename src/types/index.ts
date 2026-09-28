@@ -11,21 +11,35 @@ export interface Project {
   highlights?: string[];
 }
 
+export type VoyageCategory = "leadership" | "community" | "academic" | "personal";
+
+export interface VoyageMemory {
+  src: string;
+  caption: string;
+  alt?: string;
+}
+
 export interface Experience {
   id: string;
-  role: string;
-  company: string;
+  title: string;
+  category: VoyageCategory;
+  organization: string;
+  division?: string;
   period: string;
-  location?: string;
+  caption: string;
+  image?: string;
+  imageAlt?: string;
+  scholarship?: string;
   description: string[];
-  skills?: string[];
+  tags: string[];
+  gallery?: VoyageMemory[];
 }
+
+export type SkillCategory = "frontend" | "backend" | "database" | "tools";
 
 export interface TechStackItem {
   name: string;
-  category: "frontend" | "backend" | "tools" | "other" | "database";
-  level?: number; // 0 to 100
+  category: SkillCategory;
   icon?: string;
-  description?: string;
 }
 

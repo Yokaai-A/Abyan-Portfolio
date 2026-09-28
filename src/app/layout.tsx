@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MusicPlayer from "@/components/ui/MusicPlayer";
+import LoadingScreen from "@/components/ui/LoadingScreen";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="id" className="h-full antialiased dark">
+    <html lang="id" className="h-full antialiased dark scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -36,6 +37,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col bg-[#060e1a] text-slate-100 font-['Pixelify_Sans',sans-serif] selection:bg-cyan-500 selection:text-black">
+        <LoadingScreen />
         <Navbar />
         <div className="flex-1 flex flex-col w-full">
           {children}
