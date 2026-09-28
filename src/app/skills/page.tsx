@@ -5,12 +5,12 @@ import SkillsInventory from "@/components/sections/TechStack";
 export default function SkillsPage() {
   return (
     <div className="relative min-h-screen pb-20">
-      <section className="relative isolate h-[max(880px,100svh)] pt-24" aria-label="Developer skills">
+      <section className="relative isolate min-h-svh pt-24 pb-12" aria-label="Developer skills">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "linear-gradient(to bottom, rgba(6, 14, 26, 0.2) 0%, rgba(6, 14, 26, 0.2) 88%, #060e1a 100%), url('/assets/background/Background_Skills.png')",
+            backgroundImage: "linear-gradient(to bottom, rgba(6, 14, 26, 0.4) 0%, rgba(6, 14, 26, 0.55) 70%, #060e1a 100%), url('/assets/background/Background_Skills.png')",
           }}
         />
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 flow-root">
@@ -30,7 +30,7 @@ export default function SkillsPage() {
       <SkillsInventory />
         <a
           href="#captains-workstation"
-          className="pixel-box absolute bottom-6 left-1/2 z-10 flex w-fit -translate-x-1/2 flex-row items-center gap-3 border border-cyan-400/70 bg-[#071526] px-5 py-3 font-pixel-mono text-[10px] text-cyan-200 transition-[transform,border-color,color] duration-200 hover:-translate-y-0.5 hover:border-amber-300 hover:text-amber-300 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300"
+          className="pixel-box relative mx-auto mt-10 flex w-fit flex-row items-center gap-3 border border-cyan-400/70 bg-[#071526] px-5 py-3 font-pixel-mono text-[10px] text-cyan-200 transition-[transform,border-color,color] duration-200 hover:-translate-y-0.5 hover:border-amber-300 hover:text-amber-300 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300"
         >
           <span>SCROLL DOWN TO CONTINUE</span>
           <ArrowDown aria-hidden="true" className="h-4 w-4 text-amber-300 motion-safe:animate-bounce motion-reduce:animate-none" />
