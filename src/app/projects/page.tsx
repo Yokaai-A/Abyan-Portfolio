@@ -11,7 +11,9 @@ import {
   ArrowRight,
   FolderGit2,
   CheckCircle2,
+  Image as ImageIcon,
 } from "lucide-react";
+import Image from "next/image";
 import { projects } from "@/data/projects";
 
 function GithubIcon({ className = "w-3 h-3" }: { className?: string }) {
@@ -71,7 +73,7 @@ export default function ProjectsPage() {
           backgroundImage: "linear-gradient(to bottom, rgba(6, 14, 26, 0.2) 0%, rgba(6, 14, 26, 0.3) 65%, #060e1a 100%), url('/assets/background/Background_Projects.png')",
         }}
       />
-      <div className="mx-auto max-w-6xl px-4 pt-24 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-3 pt-20 sm:px-6 sm:pt-24 lg:px-8">
 
       {/* Page Header */}
       <div className="mb-10 text-center space-y-3">
@@ -79,7 +81,7 @@ export default function ProjectsPage() {
           <Anchor className="w-3.5 h-3.5 text-amber-400" />
           <span>EXPEDITION LOGBOOK // SHIPPED VOYAGES</span>
         </div>
-        <h1 className="text-2xl sm:text-4xl font-extrabold font-['Press_Start_2P',monospace] text-white tracking-wide">
+        <h1 className="text-lg sm:text-4xl font-extrabold font-['Press_Start_2P',monospace] text-white tracking-wide">
           FEATURED <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-amber-300">PROJECTS</span>
         </h1>
         <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto font-['Pixelify_Sans',sans-serif]">
@@ -119,13 +121,14 @@ export default function ProjectsPage() {
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-14">
+      <div className="grid grid-cols-1 gap-6 sm:gap-8 mb-14">
         {filteredProjects.map((project) => (
           <div
             key={project.id}
-            className="bg-[#071526]/90 border-2 border-slate-700/90 hover:border-cyan-400/90 p-6 pixel-box flex flex-col justify-between transition-all group shadow-xl relative"
+            className="bg-[#071526]/90 border-2 border-slate-700/90 hover:border-cyan-400/90 p-4 pixel-box grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 transition-all group shadow-xl relative"
           >
-            <div className="space-y-4">
+            <div className="min-w-0">
+            <div className="space-y-3">
               {/* Card Header & Badges */}
               <div className="flex items-start justify-between gap-3">
                 <div>
@@ -141,7 +144,7 @@ export default function ProjectsPage() {
                     )}
                   </div>
 
-                  <h2 className="font-['Press_Start_2P',monospace] text-sm sm:text-base text-white group-hover:text-cyan-300 transition-colors">
+                      <h2 className="font-['Press_Start_2P',monospace] text-xs sm:text-sm text-white group-hover:text-cyan-300 transition-colors">
                     {project.title}
                   </h2>
                 </div>
@@ -152,7 +155,7 @@ export default function ProjectsPage() {
               </div>
 
               {/* Description */}
-              <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-['Pixelify_Sans',sans-serif]">
+              <p className="text-slate-200 text-[11px] sm:text-xs leading-relaxed font-['Pixelify_Sans',sans-serif]">
                 {project.description}
               </p>
 
@@ -166,7 +169,7 @@ export default function ProjectsPage() {
                     {project.highlights.map((h, i) => (
                       <li
                         key={i}
-                        className="text-xs text-slate-300 flex items-start gap-2 font-['Pixelify_Sans',sans-serif]"
+                    className="text-[11px] text-slate-300 flex items-start gap-2 font-['Pixelify_Sans',sans-serif]"
                       >
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                         <span>{h}</span>
@@ -181,7 +184,7 @@ export default function ProjectsPage() {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2 py-0.5 bg-[#030a14] border border-cyan-500/30 text-[10px] font-['Silkscreen',monospace] text-cyan-300"
+                    className="px-1.5 py-0.5 bg-[#030a14] border border-cyan-500/30 text-[9px] font-['Silkscreen',monospace] text-cyan-300"
                   >
                     {tag}
                   </span>
@@ -190,7 +193,7 @@ export default function ProjectsPage() {
             </div>
 
             {/* Action Links */}
-            <div className="flex items-center gap-3 pt-6 mt-4 border-t border-slate-800 font-['Press_Start_2P',monospace] text-[10px]">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-4 mt-3 border-t border-slate-800 font-['Press_Start_2P',monospace] text-[8px] sm:text-[9px]">
               {project.demoUrl && project.demoUrl !== "#" ? (
                 <a
                   href={project.demoUrl}
@@ -217,6 +220,19 @@ export default function ProjectsPage() {
                   <GithubIcon className="w-3 h-3 text-amber-400" />
                   <span>VIEW REPO</span>
                 </a>
+              )}
+            </div>
+            </div>
+
+            <div className="relative h-44 sm:h-64 self-center overflow-hidden border-2 border-cyan-800/70 bg-[#030c18] pixel-box">
+              {project.image ? (
+                <Image src={project.image} alt={`${project.title} product screenshot`} fill
+                  sizes="(max-width: 1024px) 100vw, 42vw" className="object-contain p-3" />
+              ) : (
+                <div className="flex h-full flex-col items-center justify-center gap-3 text-cyan-800/80">
+                  <ImageIcon aria-hidden="true" className="h-10 w-10" />
+                  <span className="font-['Silkscreen',monospace] text-[10px]">PRODUCT IMAGE</span>
+                </div>
               )}
             </div>
           </div>

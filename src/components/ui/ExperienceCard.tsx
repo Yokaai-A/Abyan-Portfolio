@@ -16,10 +16,10 @@ export default function ExperienceCard({ experience, duplicate = false, onSelect
     <button type="button" tabIndex={duplicate ? -1 : 0} onClick={onSelect}
       aria-label={`View ${experience.title}, ${experience.period}`} aria-haspopup="dialog"
       className="group/card block h-full w-full border border-cyan-800/70 bg-[#071526] p-2 text-left shadow-[3px_3px_0_#020617] transition-[transform,border-color,box-shadow] duration-200 hover:border-cyan-300 hover:shadow-[0_0_16px_#22d3ee20,3px_3px_0_#020617] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300 motion-safe:hover:-translate-y-0.5 motion-reduce:transition-none">
-      <span className="relative block aspect-[4/5] overflow-hidden border border-cyan-900 bg-[#030c18]">
+      <span className="relative block aspect-video overflow-hidden border border-cyan-900 bg-[#030c18]">
         {image && !failed ? (
           <Image src={image} alt={experience.imageAlt ?? experience.gallery?.[0]?.alt ?? experience.title}
-            fill sizes="(max-width: 640px) 72vw, 296px" className="object-cover transition-[filter] duration-200 group-hover/card:brightness-110 motion-reduce:transition-none"
+            fill sizes="(max-width: 640px) 82vw, 380px" className="object-contain transition-[filter] duration-200 group-hover/card:brightness-110 motion-reduce:transition-none"
             onError={() => setFailed(true)} />
         ) : (
           <span className="flex h-full flex-col items-center justify-center gap-4 px-4 text-center text-slate-500">

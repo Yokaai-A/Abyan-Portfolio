@@ -52,13 +52,13 @@ export default function Home() {
       <Hero />
 
       {/* Voyage Portals Command Center */}
-      <section id="voyage-directory" className="relative max-w-6xl mx-auto scroll-mt-20 px-4 sm:px-6 lg:px-8 py-16">
+      <section id="voyage-directory" className="relative max-w-6xl mx-auto scroll-mt-20 px-3 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="text-center mb-10 space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0b1b30] border border-cyan-500/60 pixel-box text-[11px] font-['Silkscreen',monospace] text-cyan-300">
             <Compass className="w-3.5 h-3.5 text-amber-400 animate-spin" style={{ animationDuration: "14s" }} />
             <span>COMMAND DECK // VOYAGE DIRECTORY</span>
           </div>
-          <h2 className="text-xl sm:text-3xl font-extrabold font-['Press_Start_2P',monospace] text-white">
+          <h2 className="text-base sm:text-3xl font-extrabold font-['Press_Start_2P',monospace] text-white">
             EXPLORE THE <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-amber-300">SHIP</span>
           </h2>
           <p className="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto font-['Pixelify_Sans',sans-serif]">

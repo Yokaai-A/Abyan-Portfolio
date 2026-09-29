@@ -21,10 +21,11 @@ export default function VoyageRow({ category, title, direction, experiences }: {
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const Marker = markers[category];
-  // Each identical group covers more than the page's max-width, even with one entry.
-  // Repetitions belong only to presentation; the source data stays unique.
-  const repetitions = experiences.length ? Math.ceil(4 / experiences.length) : 0;
+  // Keep short rows static. Longer rows repeat enough cards to support seamless looping.
+  const looping = experiences.length > 2;
+  const repetitions = looping ? Math.ceil(4 / experiences.length) : experiences.length ? 1 : 0;
   const cards = Array.from({ length: repetitions }, () => experiences).flat();
+  const groups = looping ? [0, 1] : [0];
   const duration = Math.max(60, cards.length * 15);
 
   function startManualScroll() {
@@ -71,12 +72,12 @@ export default function VoyageRow({ category, title, direction, experiences }: {
             className="inline-flex h-10 w-10 items-center justify-center border border-cyan-900 text-cyan-300 hover:border-cyan-400 focus-visible:outline-2 focus-visible:outline-amber-300">
             <ChevronLeft aria-hidden="true" className="h-4 w-4" />
           </button>
-          <button type="button" onClick={() => manual ? resumeMovement() : startManualScroll()} aria-pressed={manual}
+          {looping && <button type="button" onClick={() => manual ? resumeMovement() : startManualScroll()} aria-pressed={manual}
             aria-label={manual ? `Resume ${title} movement` : `Pause ${title} movement and browse manually`}
             className={`${styles.motionControl} inline-flex min-h-10 items-center gap-2 border border-cyan-900 px-3 font-pixel-mono text-[10px] text-slate-300 hover:border-cyan-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300`}>
             {manual ? <Play aria-hidden="true" className="h-3 w-3" /> : <Pause aria-hidden="true" className="h-3 w-3" />}
             {manual ? "RESUME" : "PAUSE"}
-          </button>
+          </button>}
           <button type="button" onClick={() => scrollCards(1)} aria-label={`Scroll ${title} right`}
             className="inline-flex h-10 w-10 items-center justify-center border border-cyan-900 text-cyan-300 hover:border-cyan-400 focus-visible:outline-2 focus-visible:outline-amber-300">
             <ChevronRight aria-hidden="true" className="h-4 w-4" />
@@ -88,9 +89,9 @@ export default function VoyageRow({ category, title, direction, experiences }: {
         <div ref={viewportRef} className={`${styles.viewport} ${manual ? styles.manual : ""}`} role="region" aria-label={`${title} gallery`}
           onPointerDown={startManualScroll}
           onWheel={(event) => { if (event.deltaX !== 0 || event.shiftKey) startManualScroll(); }}>
-          <div ref={trackRef} className={`${styles.track} ${direction === "right" ? styles.right : ""}`}
+          <div ref={trackRef} className={`${styles.track} ${!looping ? styles.static : ""} ${direction === "right" ? styles.right : ""}`}
             style={{ "--voyage-duration": `${duration}s` } as CSSProperties}>
-            {[0, 1].map((group) => (
+            {groups.map((group) => (
               <div key={group} className={`${styles.group} ${group ? styles.duplicate : ""}`} aria-hidden={group ? true : undefined}>
                 {cards.map((experience, index) => {
                   const duplicate = group > 0 || index >= experiences.length;

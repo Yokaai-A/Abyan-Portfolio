@@ -1,0 +1,82 @@
+2026-09-29 16:42:38.367: [INFO] CurrentProfilePath: C:\Users\user\Documents\AntiGravity\My-Portofolio\scratch\edge_user_data\Default
+2026-09-29 16:42:38.367: [INFO] Profiles total count: 1
+2026-09-29 16:42:38.367: [INFO] Profile: name=Profile 1 path=C:\Users\user\Documents\AntiGravity\My-Portofolio\scratch\edge_user_data\Default lastActive=null
+2026-09-29 16:42:38.367: [INFO] LastUsedProfileDir: C:\Users\user\Documents\AntiGravity\My-Portofolio\scratch\edge_user_data\Default
+2026-09-29 16:42:38.367: [INFO] VisibilityChanged: 0
+2026-09-29 16:42:38.379: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-09-29 16:42:38.379: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-09-29 16:42:38.380: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-09-29 16:42:38.380: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-09-29 16:42:38.381: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-09-29 16:42:38.382: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-09-29 16:42:38.383: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-09-29 16:42:38.384: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-09-29 16:42:38.385: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-09-29 16:42:38.385: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-09-29 16:42:38.395: [INFO] OnDoneLoading sync enabled: 0
+2026-09-29 16:42:38.395: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-09-29 16:42:38.395: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-09-29 16:42:38.395: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-09-29 16:42:38.396: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-09-29 16:42:43.423: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-09-29 16:42:43.428: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:42:43.431: [INFO] Primary account changed.
+2026-09-29 16:42:43.431: [INFO] OnPrimaryAccountChanged PrimaryAccountChangeEvent::Type::kSet
+2026-09-29 16:42:43.442: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:42:43.457: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:44:37.327: [INFO] CurrentProfilePath: C:\Users\user\Documents\AntiGravity\My-Portofolio\scratch\edge_user_data\Default
+2026-09-29 16:44:37.327: [INFO] Profiles total count: 1
+2026-09-29 16:44:37.327: [INFO] Profile: name=Profile 1 path=C:\Users\user\Documents\AntiGravity\My-Portofolio\scratch\edge_user_data\Default lastActive=null
+2026-09-29 16:44:37.327: [INFO] LastUsedProfileDir: C:\Users\user\Documents\AntiGravity\My-Portofolio\scratch\edge_user_data\Default
+2026-09-29 16:44:37.327: [INFO] VisibilityChanged: 0
+2026-09-29 16:44:37.360: [INFO] OnDoneLoading sync enabled: 0
+2026-09-29 16:44:37.360: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-09-29 16:44:37.360: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-09-29 16:44:37.360: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-09-29 16:44:37.374: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:44:37.422: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:44:37.660: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:44:37.663: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:44:37.665: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:44:37.668: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:44:37.670: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:44:37.672: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:44:37.674: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 5
+2026-09-29 16:44:37.676: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 5
+2026-09-29 16:44:38.433: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 5
+2026-09-29 16:44:38.437: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 5
+2026-09-29 16:44:38.702: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 5
+2026-09-29 16:44:38.918: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 5
+2026-09-29 16:44:38.920: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 6
+2026-09-29 16:44:38.922: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 6
+2026-09-29 16:44:39.537: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 6
+2026-09-29 16:44:39.539: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 6
+2026-09-29 16:44:39.751: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 6
+2026-09-29 16:45:16.015: [INFO] CurrentProfilePath: C:\Users\user\Documents\AntiGravity\My-Portofolio\scratch\edge_user_data\Default
+2026-09-29 16:45:16.015: [INFO] Profiles total count: 1
+2026-09-29 16:45:16.015: [INFO] Profile: name=Profile 1 path=C:\Users\user\Documents\AntiGravity\My-Portofolio\scratch\edge_user_data\Default lastActive=null
+2026-09-29 16:45:16.015: [INFO] LastUsedProfileDir: C:\Users\user\Documents\AntiGravity\My-Portofolio\scratch\edge_user_data\Default
+2026-09-29 16:45:16.015: [INFO] VisibilityChanged: 0
+2026-09-29 16:45:16.051: [INFO] OnDoneLoading sync enabled: 0
+2026-09-29 16:45:16.051: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-09-29 16:45:16.051: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-09-29 16:45:16.051: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-09-29 16:45:16.065: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:45:16.084: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:45:17.329: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:45:17.331: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:45:17.332: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:45:17.333: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:45:17.335: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:45:17.336: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-09-29 16:45:17.337: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 5
+2026-09-29 16:45:17.339: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 5
+2026-09-29 16:45:18.260: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 5
+2026-09-29 16:45:18.263: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 5
+2026-09-29 16:45:18.498: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 5
+2026-09-29 16:45:18.703: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 5
+2026-09-29 16:45:18.706: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 6
+2026-09-29 16:45:18.708: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 6
+2026-09-29 16:45:19.311: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 6
+2026-09-29 16:45:19.314: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 6
+2026-09-29 16:45:19.512: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 6

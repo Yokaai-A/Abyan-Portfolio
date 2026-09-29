@@ -10,7 +10,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full bg-[#030811] border-t-2 border-cyan-800/40 text-slate-400 font-['Silkscreen',monospace] text-xs mt-auto">
-      <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
         {/* Left Brand & Coordinates */}
         <div className="space-y-1.5 text-center md:text-left">
           <div className="flex items-center justify-center md:justify-start gap-2 font-['Press_Start_2P',monospace] text-[11px] text-cyan-300">

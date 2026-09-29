@@ -12,12 +12,14 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="relative min-h-screen pb-20">
-      <section className="relative isolate px-4 pt-24 pb-12 sm:px-6 lg:px-8" aria-label="About Abyan">
+      <section className="relative isolate px-3 pt-20 pb-10 sm:px-6 sm:pt-24 sm:pb-12 lg:px-8" aria-label="About Abyan">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 -z-10 bg-cover bg-top bg-no-repeat"
           style={{
             backgroundImage: "linear-gradient(to bottom, rgba(6, 14, 26, 0.45) 0%, rgba(6, 14, 26, 0.55) 70%, #060e1a 100%), url('/assets/background/About_Me_Background.png')",
+            maskImage: "linear-gradient(to bottom, #000 0%, #000 68%, rgba(0, 0, 0, 0.72) 84%, transparent 100%)",
+            WebkitMaskImage: "linear-gradient(to bottom, #000 0%, #000 68%, rgba(0, 0, 0, 0.72) 84%, transparent 100%)",
           }}
         />
         <div className="max-w-5xl mx-auto">
@@ -28,7 +30,7 @@ export default function AboutPage() {
           <Anchor className="w-3.5 h-3.5 text-amber-400" />
           <span>CAPTAIN&apos;S QUARTERS // LOGBOOK</span>
         </div>
-        <h1 className="text-2xl sm:text-4xl font-extrabold font-['Press_Start_2P',monospace] text-white tracking-wide">
+        <h1 className="text-lg sm:text-4xl font-extrabold font-['Press_Start_2P',monospace] text-white tracking-wide">
           ABOUT <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-amber-300">ABYAN</span>
         </h1>
         <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto font-['Pixelify_Sans',sans-serif]">
@@ -118,7 +120,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8">
       <ExperienceSection />
 
       {/* Captain's Code: development principles */}

@@ -23,6 +23,8 @@ export const experiences: Experience[] = [
     category: "leadership",
     organization: "BINUS University",
     period: "2025/2026 Even Semester",
+    image: "/assets/experiences/Senior_Scholarship_Mentor.jpeg",
+    imageAlt: "Senior Scholarship Mentor at BINUS University",
     scholarship: "Scholarship role · 16 SKS tuition scholarship",
     description: [
       "Guide and support university students throughout their academic journey and campus-related challenges.",
@@ -38,6 +40,8 @@ export const experiences: Experience[] = [
     category: "leadership",
     organization: "BINUS University",
     period: "2025/2026 Odd Semester",
+    image: "/assets/experiences/Scholarship_Mentor.jpeg",
+    imageAlt: "Scholarship Mentor at BINUS University",
     scholarship: "Scholarship role · 16 SKS tuition scholarship",
     description: [
       "Guide university students as they adapt to academic responsibilities and university life.",
@@ -53,6 +57,8 @@ export const experiences: Experience[] = [
     category: "leadership",
     organization: "BINUS University",
     period: "August 2025",
+    image: "/assets/experiences/Freshmen_Leader.jpeg",
+    imageAlt: "Freshmen Leader B29 at BINUS University",
     description: [
       "Guided incoming B29 students during their introduction to university life and campus orientation.",
       "Helped freshmen understand the campus environment, university activities, and their transition into university.",
@@ -63,6 +69,8 @@ export const experiences: Experience[] = [
   {
     id: "freshmen-partner-b29",
     caption: "Accompanying and supporting freshmen throughout their first year of university.",
+    image: "/assets/experiences/Freshmen_Partner.jpeg",
+    imageAlt: "Freshmen Partner supporting B29 freshmen at BINUS University",
     title: "Freshmen Partner — B29",
     category: "leadership",
     organization: "BINUS University",
@@ -76,6 +84,8 @@ export const experiences: Experience[] = [
   },
   {
     id: "bncc-event-organizer",
+    image: "/assets/experiences/BNCC_EEO.jpeg",
+    imageAlt: "BNCC Event Organizer team activity",
     caption: "Contributing to the planning, coordination, and execution of technology-focused organizational events.",
     title: "BNCC Activist — Event Organizer",
     category: "community",

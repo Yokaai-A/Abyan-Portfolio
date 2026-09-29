@@ -86,7 +86,7 @@ export default function Navbar() {
         }}
       />
 
-      <nav className="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3">
+      <nav className="max-w-6xl mx-auto flex items-center justify-between px-3 sm:px-6 py-2.5 sm:py-3">
 
         {/* ══ LOGO — flashy left brand ══ */}
         <Link
@@ -142,7 +142,7 @@ export default function Navbar() {
         </Link>
 
         {/* ── Desktop Links — match footer bracket style ── */}
-        <div className="hidden md:flex items-center gap-1 font-['Silkscreen',monospace] text-[11px]">
+        <div className="hidden lg:flex items-center gap-1 font-['Silkscreen',monospace] text-[11px]">
           {NAV_ITEMS.map((item) => {
             const active = pathname === item.href;
             return (
@@ -213,7 +213,7 @@ export default function Navbar() {
           <button
             onClick={() => { playBeep(); setMobileOpen(!mobileOpen); }}
             aria-label="Toggle menu"
-            className="md:hidden flex items-center justify-center w-8 h-8 transition-all duration-200"
+            className="lg:hidden flex items-center justify-center w-8 h-8 transition-all duration-200"
             style={{
               background: "rgba(11,27,48,0.9)",
               border: mobileOpen
@@ -232,7 +232,7 @@ export default function Navbar() {
 
       {/* ── Mobile Drawer ── */}
       <div
-        className="md:hidden overflow-hidden transition-all duration-300 ease-in-out"
+        className="lg:hidden overflow-hidden transition-all duration-300 ease-in-out"
         style={{ maxHeight: mobileOpen ? "320px" : "0px", opacity: mobileOpen ? 1 : 0 }}
       >
         <div

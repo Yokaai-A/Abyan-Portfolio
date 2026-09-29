@@ -84,7 +84,7 @@ export default function MusicPlayer() {
   return (
     <div
       ref={panelRef}
-      className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2"
+      className="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-2"
       style={{ fontFamily: "'Press Start 2P', monospace" }}
     >
       {/* Expanded Panel */}

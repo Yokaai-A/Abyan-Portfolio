@@ -11,6 +11,7 @@
   width: max-content;
   animation: sail var(--voyage-duration, 60s) linear infinite;
 }
+.static { animation: none; }
 .right { animation-direction: reverse; }
 .group {
   display: flex;
@@ -19,7 +20,7 @@
   padding-right: 20px;
 }
 .card {
-  width: clamp(220px, 72vw, 296px);
+  width: clamp(280px, 82vw, 380px);
   flex-shrink: 0;
 }
 .viewport:hover .track,

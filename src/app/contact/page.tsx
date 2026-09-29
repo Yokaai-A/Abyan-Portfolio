@@ -1,14 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
 import {
   Anchor,
-  Compass,
   Radio,
   Mail,
-  Send,
-  CheckCircle2,
-  Terminal,
   MessageSquare,
   Sparkles,
 } from "lucide-react";
@@ -33,13 +28,6 @@ function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
 }
 
 export default function ContactPage() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [category, setCategory] = useState("New Project / Fullstack Quest");
-  const [message, setMessage] = useState("");
-  const [isSending, setIsSending] = useState(false);
-  const [transmissionSuccess, setTransmissionSuccess] = useState(false);
-
   // Morse / Radio Blip sound generator
   const playMorseSound = (freq = 700, duration = 0.08) => {
     try {
@@ -65,19 +53,6 @@ export default function ContactPage() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    playMorseSound(880, 0.15);
-    setIsSending(true);
-
-    // Simulate telegraph transmission
-    setTimeout(() => {
-      setIsSending(false);
-      setTransmissionSuccess(true);
-      playMorseSound(1100, 0.2);
-    }, 1000);
-  };
-
   return (
     <div className="relative isolate min-h-screen pb-20">
       <div
@@ -87,15 +62,15 @@ export default function ContactPage() {
           backgroundImage: "linear-gradient(to bottom, rgba(6, 14, 26, 0.3) 0%, rgba(6, 14, 26, 0.4) 65%, #060e1a 100%), url('/assets/background/Background_Contacts.png')",
         }}
       />
-      <div className="mx-auto max-w-5xl px-4 pt-24 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-5xl min-w-0 px-3 pt-20 sm:px-6 sm:pt-24 lg:px-8">
 
       {/* Page Header */}
-      <div className="mb-10 text-center space-y-3">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0b1b30] border border-cyan-500/60 pixel-box text-[11px] font-['Silkscreen',monospace] text-cyan-300">
+      <div className="mb-10 min-w-0 space-y-3 text-center">
+        <div className="inline-flex max-w-full flex-wrap items-center justify-center gap-2 px-3 py-1 bg-[#0b1b30] border border-cyan-500/60 pixel-box text-[9px] sm:text-[11px] font-['Silkscreen',monospace] text-cyan-300">
           <Radio className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
-          <span>TELEGRAPH STATION // FREQUENCY: 142.800 MHz</span>
+          <span className="min-w-0 [overflow-wrap:anywhere]">TELEGRAPH STATION // FREQUENCY: 142.800 MHz</span>
         </div>
-        <h1 className="text-2xl sm:text-4xl font-extrabold font-['Press_Start_2P',monospace] text-white tracking-wide">
+        <h1 className="text-lg sm:text-4xl font-extrabold font-['Press_Start_2P',monospace] text-white tracking-wide">
           CONTACT <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-amber-300">CAPTAIN</span>
         </h1>
         <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto font-['Pixelify_Sans',sans-serif]">
@@ -103,9 +78,9 @@ export default function ContactPage() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+      <div className="mb-12 grid min-w-0 grid-cols-1 gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
         {/* Left Side: Communication Frequencies & Socials (2 cols) */}
-        <div className="md:col-span-2 space-y-6">
+        <div className="min-w-0 space-y-6">
           <div className="bg-[#071526]/90 border-2 border-slate-700/90 p-6 pixel-box space-y-4 shadow-xl">
             <div className="flex items-center gap-2 pb-2 border-b border-slate-800 font-['Press_Start_2P',monospace] text-xs text-amber-300">
               <Anchor className="w-4 h-4 text-cyan-400" />
@@ -121,12 +96,12 @@ export default function ContactPage() {
               <a
                 href="mailto:abyanhanif41@gmail.com"
                 onClick={() => playMorseSound(600, 0.08)}
-                className="flex items-center gap-3 p-3 bg-[#030a14] border border-cyan-500/40 pixel-box hover:border-cyan-300 hover:bg-[#07172b] transition-colors group"
+                className="group flex min-w-0 items-center gap-3 p-3 bg-[#030a14] border border-cyan-500/40 pixel-box hover:border-cyan-300 hover:bg-[#07172b] transition-colors"
               >
-                <Mail className="w-4 h-4 text-cyan-400 group-hover:scale-110 transition-transform" />
-                <div>
+                <Mail className="w-4 h-4 shrink-0 text-cyan-400 group-hover:scale-110 transition-transform" />
+                <div className="min-w-0 flex-1 [overflow-wrap:anywhere]">
                   <div className="text-[9px] text-slate-400">ELECTRONIC DISPATCH</div>
-                  <div className="text-cyan-200 text-xs">abyanhanif41@gmail.com</div>
+                  <div className="text-cyan-200 text-xs [overflow-wrap:anywhere]">abyanhanif41@gmail.com</div>
                 </div>
               </a>
 
@@ -136,12 +111,12 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => playMorseSound(700, 0.08)}
-                className="flex items-center gap-3 p-3 bg-[#030a14] border border-slate-700 pixel-box hover:border-amber-400 hover:bg-[#07172b] transition-colors group"
+                className="group flex min-w-0 items-center gap-3 p-3 bg-[#030a14] border border-slate-700 pixel-box hover:border-amber-400 hover:bg-[#07172b] transition-colors"
               >
-                <GithubIcon className="w-4 h-4 text-amber-400 group-hover:scale-110 transition-transform" />
-                <div>
+                <GithubIcon className="w-4 h-4 shrink-0 text-amber-400 group-hover:scale-110 transition-transform" />
+                <div className="min-w-0 flex-1 [overflow-wrap:anywhere]">
                   <div className="text-[9px] text-slate-400">CODE REPOSITORIES</div>
-                  <div className="text-slate-200 text-xs">github.com/Yokaai-A</div>
+                  <div className="text-slate-200 text-xs [overflow-wrap:anywhere]">github.com/Yokaai-A</div>
                 </div>
               </a>
 
@@ -151,12 +126,17 @@ export default function ContactPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => playMorseSound(800, 0.08)}
-                className="flex items-center gap-3 p-3 bg-[#030a14] border border-slate-700 pixel-box hover:border-cyan-400 hover:bg-[#07172b] transition-colors group"
+                className="group flex w-full min-w-0 items-center gap-3 p-3 bg-[#030a14] border border-slate-700 pixel-box hover:border-cyan-400 hover:bg-[#07172b] transition-colors"
               >
-                <LinkedinIcon className="w-4 h-4 text-sky-400 group-hover:scale-110 transition-transform" />
-                <div>
+                <LinkedinIcon className="w-4 h-4 shrink-0 text-sky-400 group-hover:scale-110 transition-transform" />
+                <div className="w-0 min-w-0 flex-1">
                   <div className="text-[9px] text-slate-400">CREW NETWORK</div>
-                  <div className="text-slate-200 text-xs">linkedin.com/in/muhammad-abyan-hanif-42217b326</div>
+                  <div
+                    className="block w-full text-slate-200 text-xs leading-relaxed"
+                    style={{ overflowWrap: "anywhere", wordBreak: "break-all" }}
+                  >
+                    linkedin.com/in/muhammad-abyan-hanif-42217b326
+                  </div>
                 </div>
               </a>
             </div>
@@ -179,115 +159,32 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Right Side: Interactive Telegraph Dispatch Form (3 cols) */}
-        <div className="md:col-span-3">
-          <div className="bg-[#071526]/95 border-2 border-cyan-500/60 p-6 sm:p-8 pixel-box shadow-2xl relative">
-            <div className="flex items-center justify-between pb-4 mb-4 border-b border-cyan-900/60 font-['Press_Start_2P',monospace] text-xs text-amber-300">
-              <span className="flex items-center gap-2">
-                <Terminal className="w-4 h-4 text-cyan-400" />
-                <span>TELEGRAPH_FORM.BAT</span>
-              </span>
-              <span className="text-[9px] text-slate-400">ENCRYPTED // SECURE</span>
+        {/* Contact invitation */}
+        <div className="min-w-0">
+          <div className="relative flex h-full min-h-[340px] min-w-0 flex-col justify-between overflow-hidden border-2 border-cyan-500/60 bg-[#071526]/95 p-4 sm:p-8 pixel-box shadow-2xl">
+            <div className="relative min-w-0">
+              <div className="mb-8 flex flex-wrap items-center justify-between gap-3 border-b border-cyan-900/60 pb-4 font-['Press_Start_2P',monospace] text-[9px] sm:text-[10px] text-amber-300">
+                <span className="flex min-w-0 items-center gap-2"><MessageSquare className="h-4 w-4 shrink-0 text-cyan-400" /><span className="[overflow-wrap:anywhere]">OPEN CHANNEL</span></span>
+                <span className="flex shrink-0 items-center gap-2 text-[9px] text-emerald-400"><span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />AVAILABLE</span>
+              </div>
+
+              <Sparkles aria-hidden="true" className="mb-4 h-6 w-6 text-amber-300" />
+              <h2 className="max-w-full font-['Press_Start_2P',monospace] text-sm leading-relaxed text-white [overflow-wrap:anywhere] sm:max-w-xl sm:text-2xl">
+                LET&apos;S BUILD SOMETHING <span className="text-cyan-300">GREAT.</span>
+              </h2>
+              <p className="mt-4 max-w-full text-sm leading-relaxed text-slate-300 font-['Pixelify_Sans',sans-serif] sm:max-w-lg sm:text-base">
+                Have a project in mind, want to collaborate, or just want to say hello? Send me an email and I&apos;ll get back to you.
+              </p>
             </div>
 
-            {transmissionSuccess ? (
-              <div className="py-12 text-center space-y-4">
-                <div className="w-16 h-16 mx-auto bg-[#040c17] border-2 border-emerald-400 pixel-box flex items-center justify-center">
-                  <CheckCircle2 className="w-8 h-8 text-emerald-400" />
-                </div>
-                <h3 className="font-['Press_Start_2P',monospace] text-sm text-emerald-300">
-                  TRANSMISSION RECEIVED!
-                </h3>
-                <p className="text-slate-200 text-xs sm:text-sm max-w-md mx-auto font-['Pixelify_Sans',sans-serif]">
-                  Your signal has reached Captain Abyan&apos;s desk. I will review your dispatch and transmit a reply promptly!
-                </p>
-                <button
-                  onClick={() => {
-                    setTransmissionSuccess(false);
-                    setName("");
-                    setEmail("");
-                    setMessage("");
-                  }}
-                  className="px-4 py-2.5 bg-gradient-to-b from-cyan-600 to-blue-800 text-white font-['Press_Start_2P',monospace] text-[10px] pixel-box pixel-btn-primary"
-                >
-                  DISPATCH ANOTHER MESSAGE
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Name */}
-                <div className="space-y-1.5">
-                  <label className="block text-xs font-['Silkscreen',monospace] text-cyan-300">
-                    CALLSIGN / YOUR NAME:
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="e.g. Captain Sailor"
-                    className="w-full bg-[#030914] border-2 border-slate-700 focus:border-cyan-400 text-slate-100 px-3.5 py-2.5 text-sm font-['Pixelify_Sans',sans-serif] pixel-box outline-none transition-colors"
-                  />
-                </div>
-
-                {/* Email */}
-                <div className="space-y-1.5">
-                  <label className="block text-xs font-['Silkscreen',monospace] text-cyan-300">
-                    RETURN FREQUENCY (EMAIL):
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="e.g. sailor@fleet.com"
-                    className="w-full bg-[#030914] border-2 border-slate-700 focus:border-cyan-400 text-slate-100 px-3.5 py-2.5 text-sm font-['Pixelify_Sans',sans-serif] pixel-box outline-none transition-colors"
-                  />
-                </div>
-
-                {/* Quest Category */}
-                <div className="space-y-1.5">
-                  <label className="block text-xs font-['Silkscreen',monospace] text-cyan-300">
-                    NATURE OF EXPEDITION:
-                  </label>
-                  <select
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                    className="w-full bg-[#030914] border-2 border-slate-700 focus:border-cyan-400 text-slate-100 px-3.5 py-2.5 text-sm font-['Pixelify_Sans',sans-serif] pixel-box outline-none transition-colors"
-                  >
-                    <option value="New Project / Fullstack Quest">New Project / Web Application Quest</option>
-                    <option value="Frontend & UI Architecture">Frontend & UI / Retro Interactive Experience</option>
-                    <option value="Consulting or Architecture">Technical Consulting / Code Review</option>
-                    <option value="General Ahoy">General Ahoy & Networking</option>
-                  </select>
-                </div>
-
-                {/* Message Body */}
-                <div className="space-y-1.5">
-                  <label className="block text-xs font-['Silkscreen',monospace] text-cyan-300">
-                    TRANSMISSION CONTENT:
-                  </label>
-                  <textarea
-                    required
-                    rows={4}
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Describe your project scope, timeline, or idea..."
-                    className="w-full bg-[#030914] border-2 border-slate-700 focus:border-cyan-400 text-slate-100 px-3.5 py-2.5 text-sm font-['Pixelify_Sans',sans-serif] pixel-box outline-none transition-colors resize-none"
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  disabled={isSending}
-                  className="w-full flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-b from-cyan-500 to-blue-700 text-white border-2 border-cyan-200 pixel-box pixel-btn-primary font-['Press_Start_2P',monospace] text-xs hover:brightness-110 active:translate-y-1 disabled:opacity-50"
-                >
-                  <Send className="w-3.5 h-3.5" />
-                  <span>{isSending ? "TRANSMITTING..." : "DISPATCH TELEGRAPH"}</span>
-                </button>
-              </form>
-            )}
+            <div className="relative mt-8 flex flex-wrap items-center gap-4 border-t border-slate-800 pt-5">
+              <a href="mailto:abyanhanif41@gmail.com?subject=Hello%20Abyan" onClick={() => playMorseSound(880, 0.15)}
+                className="inline-flex items-center gap-3 border-2 border-cyan-200 bg-gradient-to-b from-cyan-500 to-blue-700 px-5 py-3 text-white pixel-box pixel-btn-primary transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300">
+                <Mail aria-hidden="true" className="h-4 w-4" />
+                <span className="font-['Press_Start_2P',monospace] text-[10px]">SEND AN EMAIL</span>
+              </a>
+              <span className="font-['Silkscreen',monospace] text-[10px] text-slate-400">TYPICAL REPLY: WITHIN 24 HOURS</span>
+            </div>
           </div>
         </div>
       </div>

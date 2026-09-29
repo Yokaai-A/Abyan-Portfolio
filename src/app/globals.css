@@ -126,4 +126,48 @@ body {
   100% { height: 28px; }
 }
 
-
+/* Responsive pixel-box: thinner shadow on tiny screens */
+@media (max-width: 479px) {
+  .pixel-box {
+    box-shadow: 
+      -2px 0 0 0 #020617,
+      2px 0 0 0 #020617,
+      0 -2px 0 0 #020617,
+      0 2px 0 0 #020617,
+      -2px -2px 0 0 #020617,
+      -2px 2px 0 0 #020617,
+      2px -2px 0 0 #020617,
+      2px 2px 0 0 #020617;
+  }
+  .pixel-box-cyan {
+    box-shadow: 
+      -2px 0 0 0 #0284c7,
+      2px 0 0 0 #0284c7,
+      0 -2px 0 0 #0284c7,
+      0 2px 0 0 #0284c7,
+      -2px -2px 0 0 #0284c7,
+      -2px 2px 0 0 #0284c7,
+      2px -2px 0 0 #0284c7,
+      2px 2px 0 0 #0284c7;
+  }
+  .pixel-box-gold {
+    box-shadow: 
+      -2px 0 0 0 #b45309,
+      2px 0 0 0 #b45309,
+      0 -2px 0 0 #b45309,
+      0 2px 0 0 #b45309,
+      -2px -2px 0 0 #b45309,
+      -2px 2px 0 0 #b45309,
+      2px -2px 0 0 #b45309,
+      2px 2px 0 0 #b45309;
+  }
+  .pixel-btn-primary {
+    box-shadow: 0 2px 0 0 #0369a1, 0 4px 0 0 #020617;
+  }
+  .pixel-btn-gold {
+    box-shadow: 0 2px 0 0 #b45309, 0 4px 0 0 #020617;
+  }
+  .pixel-btn-wood {
+    box-shadow: 0 2px 0 0 #334155, 0 4px 0 0 #020617;
+  }
+}
