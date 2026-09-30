@@ -7,8 +7,8 @@ const categories: VoyageCategory[] = ["leadership", "community", "academic"];
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" aria-labelledby="voyage-heading" className="mb-16 min-w-0 scroll-mt-24">
-      <header className="mb-10 space-y-3">
+    <section id="experience" aria-labelledby="voyage-heading" className="mb-16 min-w-0 scroll-mt-24 pt-10 sm:pt-14">
+      <header className="mb-12 space-y-3">
         <div className="flex items-start gap-3">
           <Compass aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-amber-400" />
           <h2 id="voyage-heading" className="font-pixel text-xs leading-loose text-white sm:text-base">

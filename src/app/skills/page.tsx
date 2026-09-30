@@ -22,7 +22,7 @@ export default function SkillsPage() {
       <header className="mb-10 space-y-3 text-center">
         <div className="inline-flex items-center gap-2 border border-cyan-500/60 bg-[#0b1b30] px-3 py-1 font-pixel-mono text-[11px] text-cyan-300 pixel-box">
           <Anchor aria-hidden="true" className="h-3.5 w-3.5 text-amber-400" />
-          CAPTAIN&apos;S TOOLKIT
+          CAPTAIN&apos;S TOOLKIT // SKILL INVENTORY
         </div>
         <h1 className="text-lg sm:text-4xl font-extrabold font-['Press_Start_2P',monospace] text-white tracking-wide">
           DEV <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-cyan-300 to-sky-300">SKILLS</span>

@@ -240,7 +240,7 @@ export default function ProjectsPage() {
       </div>
 
 
-      <div className="text-center bg-[#071526]/90 border-2 border-cyan-500/60 p-6 sm:p-8 pixel-box space-y-4">
+      <div className="mt-14 text-center bg-[#071526]/90 border-2 border-cyan-500/60 p-6 sm:mt-32 sm:p-8 lg:mt-72 pixel-box space-y-4">
         <div className="flex items-center justify-center gap-2 text-amber-300 font-['Press_Start_2P',monospace] text-xs">
           <Sparkles className="w-4 h-4 text-yellow-300" />
           <span>HAVE A CUSTOM EXPEDITION IN MIND?</span>
