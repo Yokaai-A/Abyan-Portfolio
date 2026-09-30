@@ -14,7 +14,7 @@ export const projects: Project[] = [
       "Interactive walking character with real-time dialogue and emotes",
       "Tailored pixel borders and scanline shader aesthetic"
     ],
-    demoUrl: "https://abyan-portfolio.vercel.app",
+    demoUrl: "https://abyan-portfolio-one.vercel.app",
     repoUrl: "https://github.com/Yokaai-A/My-Portofolio",
   },
 ];
