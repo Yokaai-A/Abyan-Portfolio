@@ -35,7 +35,7 @@ export default function BackgroundVideo({
     let disposed = false;
     let fadeTimer: ReturnType<typeof setTimeout> | undefined;
 
-    // A stays opaque underneath B, so the page never shows through a fade.
+
     b.style.opacity = "0";
     a.play().catch(() => {});
 
@@ -49,8 +49,8 @@ export default function BackgroundVideo({
       const incoming = active === a ? b : a;
 
       try {
-        // Keep the outgoing frame visible until standby playback starts,
-        // including any buffering or seeking back to the beginning.
+
+
         await incoming.play();
       } catch {
         swapping = false;
@@ -62,8 +62,8 @@ export default function BackgroundVideo({
       active = incoming;
 
       fadeTimer = setTimeout(() => {
-        // Rewind only when fully covered or transparent. Keep the source
-        // and its buffer instead of reloading the video on every loop.
+
+
         outgoing.pause();
         outgoing.currentTime = 0;
         swapping = false;

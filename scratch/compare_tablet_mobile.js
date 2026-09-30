@@ -135,7 +135,7 @@ async function measureResolution(width, height, label) {
       returnByValue: true
     });
 
-    // Capture screenshot
+
     const screenshot = await send('Page.captureScreenshot', { format: 'png' });
     fs.writeFileSync(path.join(__dirname, `screenshot_${label}.png`), Buffer.from(screenshot.data, 'base64'));
 

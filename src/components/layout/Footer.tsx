@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-[#030811] border-t-2 border-cyan-800/40 text-slate-400 font-['Silkscreen',monospace] text-xs mt-auto">
       <div className="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-8 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
-        {/* Left Brand & Coordinates */}
+
         <div className="space-y-1.5 text-center md:text-left">
           <div className="flex items-center justify-center md:justify-start gap-2 font-['Press_Start_2P',monospace] text-[11px] text-cyan-300">
             <Anchor className="w-3.5 h-3.5 text-amber-400" />
@@ -22,7 +22,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Social & Contact Links */}
+
         <div className="flex flex-wrap items-center justify-center gap-4 text-[11px] text-slate-300">
           <a
             href="https://www.linkedin.com/in/muhammad-abyan-hanif-42217b326/"
@@ -45,7 +45,7 @@ export default function Footer() {
           </a>
         </div>
 
-        {/* Right Info & Scroll Up */}
+
         <div className="flex items-center gap-4">
           <span className="text-[10px] text-slate-400">
             &copy; {new Date().getFullYear()} MUHAMMAD ABYAN HANIF

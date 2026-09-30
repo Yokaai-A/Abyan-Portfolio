@@ -24,7 +24,7 @@ export default function LoadingScreen() {
   const audioCtxRef = useRef<AudioContext | null>(null);
   const lastBeepProgressRef = useRef<number>(0);
 
-  // Play retro 8-bit beeps via Web Audio API
+
   const playRetroTone = useCallback((freq: number, duration: number = 0.08, type: OscillatorType = "square") => {
     if (!soundEnabled || typeof window === "undefined") return;
     try {
@@ -56,32 +56,32 @@ export default function LoadingScreen() {
       osc.start();
       osc.stop(ctx.currentTime + duration);
     } catch {
-      // Audio context might be restricted before interaction
+
     }
   }, [soundEnabled]);
 
-  // Fanfare when 100% complete
+
   const playVictoryChime = useCallback(() => {
     if (!soundEnabled || typeof window === "undefined") return;
     try {
-      const notes = [440, 554.37, 659.25, 880]; // A4, C#5, E5, A5
+      const notes = [440, 554.37, 659.25, 880];
       notes.forEach((freq, i) => {
         setTimeout(() => {
           playRetroTone(freq, 0.14, "triangle");
         }, i * 90);
       });
     } catch {
-      // Ignore audio error
+
     }
   }, [soundEnabled, playRetroTone]);
 
-  // Finish and dismiss the loading screen
+
   const handleEnter = useCallback(() => {
     playRetroTone(880, 0.12, "triangle");
     setIsLoading(false);
   }, [playRetroTone]);
 
-  // Fast skip with Escape or Space
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" || e.code === "Space") {
@@ -92,9 +92,9 @@ export default function LoadingScreen() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleEnter]);
 
-  // Asset preloading and smooth increment logic
+
   useEffect(() => {
-    // Preload key images in background
+
     const keyImages = [
       "/assets/characters/Idle_breathing-idle_south.gif",
       "/assets/characters/left.gif",
@@ -109,19 +109,19 @@ export default function LoadingScreen() {
 
     let current = 0;
     const interval = setInterval(() => {
-      // Paced increments so it feels intentional and smooth (~2s total)
+
       const increment = Math.max(1, Math.floor(Math.random() * 4) + 1);
       current = Math.min(100, current + increment);
 
       setProgress(current);
 
-      // Play subtle tick every ~20%
+
       if (current - lastBeepProgressRef.current >= 20) {
         lastBeepProgressRef.current = current;
         playRetroTone(280 + current * 3.5, 0.04, "square");
       }
 
-      // Update nautical status logs
+
       const matched = [...LOADING_STEPS].reverse().find((step) => current >= step.threshold);
       if (matched) {
         setStatusText(matched.text);
@@ -133,7 +133,7 @@ export default function LoadingScreen() {
         setIsReady(true);
         playVictoryChime();
 
-        // Auto-dismiss smoothly after 1.2s if user doesn't click
+
         const autoDismiss = setTimeout(() => {
           setIsLoading(false);
         }, 1200);
@@ -145,7 +145,7 @@ export default function LoadingScreen() {
     return () => clearInterval(interval);
   }, [playRetroTone, playVictoryChime]);
 
-  // Lock scroll while loading
+
   useEffect(() => {
     if (isLoading) {
       document.body.style.overflow = "hidden";
@@ -171,15 +171,15 @@ export default function LoadingScreen() {
           }}
           className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#060e1a] text-slate-100 select-none overflow-hidden"
         >
-          {/* Ambient Sea Gradients & Atmospheric Glow */}
+
           <div className="absolute inset-0 bg-radial from-[#0c2444]/60 via-[#060e1a]/95 to-[#020610] pointer-events-none" />
           <div className="absolute top-1/4 left-1/3 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-pulse" />
           <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none animate-pulse" />
 
-          {/* Retro CRT Scanlines */}
+
           <div className="absolute inset-0 scanlines opacity-40 pointer-events-none" />
 
-          {/* Top Bar / Controls */}
+
           <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-20 max-w-4xl mx-auto text-[10px] font-['Silkscreen',monospace] text-slate-400">
             <div className="flex items-center gap-2 px-3 py-1 bg-[#071526]/90 border border-slate-700/80 pixel-box">
               <span className="w-2 h-2 bg-emerald-400 animate-ping inline-block rounded-none" />
@@ -216,10 +216,10 @@ export default function LoadingScreen() {
             </div>
           </div>
 
-          {/* Main Card */}
+
           <div className="relative z-10 w-full max-w-lg px-6 flex flex-col items-center text-center">
-            
-            {/* Header Badge */}
+
+
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -230,10 +230,10 @@ export default function LoadingScreen() {
               <Compass className="w-3.5 h-3.5 text-cyan-400 animate-spin" style={{ animationDuration: "10s" }} />
             </motion.div>
 
-            {/* Captain Character & Speech Bubble */}
+
             <div className="relative flex flex-col items-center mb-6">
-              
-              {/* Retro Speech Bubble */}
+
+
               <motion.div
                 key={captainDialogue}
                 initial={{ opacity: 0, y: 5, scale: 0.95 }}
@@ -247,17 +247,17 @@ export default function LoadingScreen() {
                 </div>
                 <p className="leading-snug text-slate-100">{captainDialogue}</p>
 
-                {/* Speech Bubble Arrow */}
+
                 <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-cyan-400" />
               </motion.div>
 
-              {/* Captain Sprite with Idle Float */}
+
               <motion.div
                 animate={{ y: [0, -6, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 className="relative"
               >
-                {/* Water glow underneath */}
+
                 <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-28 h-5 bg-cyan-400/25 rounded-full blur-sm" />
 
                 <img
@@ -270,7 +270,7 @@ export default function LoadingScreen() {
               </motion.div>
             </div>
 
-            {/* Website Title */}
+
             <h1 className="text-sm sm:text-base font-['Press_Start_2P',monospace] text-white tracking-wider mb-2">
               MUHAMMAD <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-amber-300">ABYAN HANIF</span>
             </h1>
@@ -279,17 +279,17 @@ export default function LoadingScreen() {
               <span>PIXEL SEA VOYAGE PORTFOLIO</span>
             </p>
 
-            {/* 8-BIT RETRO PROGRESS BAR */}
+
             <div className="w-full bg-[#030914] p-2 border-2 border-slate-700 pixel-box shadow-2xl relative mb-3">
-              {/* Outer frame glow */}
+
               <div className="relative h-6 sm:h-7 bg-[#061220] border border-cyan-900/80 overflow-hidden flex items-center px-1">
-                {/* Progress Fill */}
+
                 <motion.div
                   className="h-full bg-gradient-to-r from-cyan-600 via-cyan-400 to-amber-400 relative"
                   style={{ width: `${progress}%` }}
                   transition={{ ease: "easeOut", duration: 0.1 }}
                 >
-                  {/* Segmented Pixel Lines */}
+
                   <div
                     className="absolute inset-0 opacity-25"
                     style={{
@@ -297,18 +297,18 @@ export default function LoadingScreen() {
                         "repeating-linear-gradient(90deg, #000 0px, #000 4px, transparent 4px, transparent 8px)",
                     }}
                   />
-                  {/* Shimmer light bar */}
+
                   <div className="absolute right-0 top-0 bottom-0 w-2 bg-white/70 shadow-[0_0_8px_#fff]" />
                 </motion.div>
 
-                {/* Centered Percentage */}
+
                 <div className="absolute inset-0 flex items-center justify-center font-['Press_Start_2P',monospace] text-[10px] text-white drop-shadow-[0_2px_0_#000]">
                   <span>{progress}%</span>
                 </div>
               </div>
             </div>
 
-            {/* Nautical Status Ticker Log */}
+
             <div className="w-full flex items-center justify-between text-[10px] font-['Silkscreen',monospace] text-slate-300 px-1 mb-6">
               <div className="flex items-center gap-1.5 text-cyan-300 truncate text-left max-w-[85%]">
                 <span className="text-amber-400 font-bold">&gt;</span>
@@ -317,7 +317,7 @@ export default function LoadingScreen() {
               <span className="text-slate-500 shrink-0">[{progress}/100]</span>
             </div>
 
-            {/* Interactive Action Button when 100% or Ready */}
+
             {isReady ? (
               <motion.button
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -339,7 +339,7 @@ export default function LoadingScreen() {
             )}
           </div>
 
-          {/* Bottom Footer Info */}
+
           <div className="absolute bottom-4 text-center font-['Silkscreen',monospace] text-[9px] text-slate-500 z-10">
             <span>PRESS SPACE OR ESC TO SKIP • S.S. CODECRAFT V2.0</span>
           </div>

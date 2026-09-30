@@ -24,7 +24,7 @@ export default function AboutPage() {
         />
         <div className="max-w-5xl mx-auto">
 
-      {/* Page Header */}
+
       <div className="mb-10 text-center space-y-3">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0b1b30] border border-cyan-500/60 pixel-box text-[11px] font-['Silkscreen',monospace] text-cyan-300">
           <Anchor className="w-3.5 h-3.5 text-amber-400" />
@@ -38,9 +38,9 @@ export default function AboutPage() {
         </p>
       </div>
 
-      {/* Captain Profile Card & Stats HUD */}
+
       <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-6">
-        {/* Profile Avatar & Class Box */}
+
         <div className="bg-[#071526]/90 border-2 border-cyan-500/50 p-6 pixel-box flex flex-col items-center text-center space-y-4 shadow-xl">
           <ProfilePhoto />
 
@@ -74,7 +74,7 @@ export default function AboutPage() {
           </dl>
         </div>
 
-        {/* Narrative Biography & Story */}
+
         <div className="bg-[#071526]/90 border-2 border-slate-700/80 p-6 pixel-box flex flex-col justify-between shadow-xl">
           <div className="space-y-4 text-slate-200 text-sm sm:text-base leading-relaxed">
             <div className="flex items-center gap-2 font-['Silkscreen',monospace] text-xs text-amber-400 pb-2 border-b border-slate-800">
@@ -95,7 +95,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Quick HUD Metrics */}
+
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 mt-4 border-t border-slate-800 font-['Silkscreen',monospace] text-center">
             <div className="p-2.5 bg-[#030a14] border border-cyan-500/40 pixel-box">
               <div className="text-base sm:text-lg font-bold text-amber-300">2.5+</div>
@@ -123,7 +123,7 @@ export default function AboutPage() {
       <div className="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8">
       <ExperienceSection />
 
-      {/* Captain's Code: development principles */}
+
       <section aria-labelledby="captains-code-heading" className="mb-14 pt-4 sm:mb-16 sm:pt-6">
         <header className="mb-6 space-y-3 border-b border-cyan-800/60 pb-5">
           <div className="flex items-center gap-3">
@@ -170,7 +170,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Navigation Footer CTA */}
+
       <div className="text-center bg-[#071526]/90 border-2 border-cyan-500/60 p-6 pixel-box space-y-4">
         <p className="font-['Press_Start_2P',monospace] text-xs text-amber-300">
           READY TO INSPECT MY ARSENAL?

@@ -12,7 +12,7 @@ export default function MusicPlayer() {
   const [isExpanded, setIsExpanded] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
 
-  // Initialize audio
+
   useEffect(() => {
     const audio = new Audio("/assets/music/Salt_and_Morning_Gold.mp3");
     audio.loop = true;
@@ -25,7 +25,7 @@ export default function MusicPlayer() {
     };
   }, []);
 
-  // Sync volume & mute to audio element
+
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -33,7 +33,7 @@ export default function MusicPlayer() {
   }, [volume, isMuted]);
 
 
-  // Close panel when clicking outside
+
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (panelRef.current && !panelRef.current.contains(e.target as Node)) {
@@ -87,7 +87,7 @@ export default function MusicPlayer() {
       className="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end gap-2"
       style={{ fontFamily: "'Press Start 2P', monospace" }}
     >
-      {/* Expanded Panel */}
+
       {isExpanded && (
         <div
           style={{
@@ -107,7 +107,7 @@ export default function MusicPlayer() {
             imageRendering: "pixelated" as const,
           }}
         >
-          {/* Title bar */}
+
           <div
             className="flex items-center gap-2 mb-3 pb-2"
             style={{ borderBottom: "2px solid #0284c7" }}
@@ -120,7 +120,7 @@ export default function MusicPlayer() {
             </span>
           </div>
 
-          {/* Track name */}
+
           <div className="mb-3 overflow-hidden" style={{ maxWidth: "180px" }}>
             <p
               style={{
@@ -135,7 +135,7 @@ export default function MusicPlayer() {
           </div>
 
 
-          {/* Audio Visualizer */}
+
           <AudioVisualizer
             audioRef={audioRef}
             isPlaying={isPlaying}
@@ -143,7 +143,7 @@ export default function MusicPlayer() {
             volume={volume}
           />
 
-          {/* Volume slider */}
+
           <div className="flex items-center gap-2 mb-3">
             <button
               onClick={toggleMute}
@@ -189,7 +189,7 @@ export default function MusicPlayer() {
             </span>
           </div>
 
-          {/* Play / Mute controls */}
+
           <div className="flex gap-2">
             <button
               onClick={togglePlay}
@@ -234,7 +234,7 @@ export default function MusicPlayer() {
         </div>
       )}
 
-      {/* Main floating button */}
+
       <button
         onClick={() => setIsExpanded((prev) => !prev)}
         title={isPlaying ? "Music: Playing" : "Music: Stopped"}
@@ -259,7 +259,7 @@ export default function MusicPlayer() {
           imageRendering: "pixelated" as const,
         }}
       >
-        {/* Scanline overlay */}
+
         <div
           style={{
             position: "absolute",
@@ -285,7 +285,7 @@ export default function MusicPlayer() {
         </span>
       </button>
 
-      {/* Status label */}
+
       {!isExpanded && (
         <div
           style={{

@@ -55,7 +55,7 @@ export default function ProjectsPage() {
       osc.start(now);
       osc.stop(now + 0.12);
     } catch {
-      // Audio context restricted
+
     }
   };
 
@@ -75,7 +75,7 @@ export default function ProjectsPage() {
       />
       <div className="mx-auto max-w-6xl px-3 pt-20 sm:px-6 sm:pt-24 lg:px-8">
 
-      {/* Page Header */}
+
       <div className="mb-10 text-center space-y-3">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0b1b30] border border-cyan-500/60 pixel-box text-[11px] font-['Silkscreen',monospace] text-cyan-300">
           <Anchor className="w-3.5 h-3.5 text-amber-400" />
@@ -89,7 +89,7 @@ export default function ProjectsPage() {
         </p>
       </div>
 
-      {/* Category Filter Tabs */}
+
       <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 font-['Silkscreen',monospace] text-xs">
         {(
           [
@@ -120,7 +120,7 @@ export default function ProjectsPage() {
         })}
       </div>
 
-      {/* Projects Grid */}
+
       <div className="grid grid-cols-1 gap-6 sm:gap-8 mb-14">
         {filteredProjects.map((project) => (
           <div
@@ -129,7 +129,7 @@ export default function ProjectsPage() {
           >
             <div className="min-w-0">
             <div className="space-y-3">
-              {/* Card Header & Badges */}
+
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
@@ -154,12 +154,12 @@ export default function ProjectsPage() {
                 </div>
               </div>
 
-              {/* Description */}
+
               <p className="text-slate-200 text-[11px] sm:text-xs leading-relaxed font-['Pixelify_Sans',sans-serif]">
                 {project.description}
               </p>
 
-              {/* Key Highlights */}
+
               {project.highlights && project.highlights.length > 0 && (
                 <div className="space-y-1.5 pt-1">
                   <span className="text-[10px] font-['Silkscreen',monospace] text-amber-300 tracking-wider">
@@ -179,7 +179,7 @@ export default function ProjectsPage() {
                 </div>
               )}
 
-              {/* Tech Tags */}
+
               <div className="flex flex-wrap gap-1.5 pt-2">
                 {project.tags.map((tag) => (
                   <span
@@ -192,7 +192,7 @@ export default function ProjectsPage() {
               </div>
             </div>
 
-            {/* Action Links */}
+
             <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-4 mt-3 border-t border-slate-800 font-['Press_Start_2P',monospace] text-[8px] sm:text-[9px]">
               {project.demoUrl && project.demoUrl !== "#" ? (
                 <a
@@ -239,7 +239,7 @@ export default function ProjectsPage() {
         ))}
       </div>
 
-      {/* Commission CTA */}
+
       <div className="text-center bg-[#071526]/90 border-2 border-cyan-500/60 p-6 sm:p-8 pixel-box space-y-4">
         <div className="flex items-center justify-center gap-2 text-amber-300 font-['Press_Start_2P',monospace] text-xs">
           <Sparkles className="w-4 h-4 text-yellow-300" />

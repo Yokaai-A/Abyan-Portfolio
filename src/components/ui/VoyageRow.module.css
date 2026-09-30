@@ -32,7 +32,7 @@
   to { transform: translateX(-50%); }
 }
 
-/* Preserve the visible position when switching from animation to native scrolling. */
+
 .manual,
 .viewport:has(button:focus-visible) { overflow-x: auto; }
 .manual .track,

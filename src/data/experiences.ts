@@ -11,10 +11,10 @@ export const voyageCategories: Record<VoyageCategory, {
   personal: { label: "PERSONAL QUEST", marker: "flag", direction: "left" },
 };
 
-// Place real photos in public/assets/voyage-memories/<experience-id>/.
-// Set image to the cover photo's public path and imageAlt to its description.
-// Add gallery entries with { src: "/assets/voyage-memories/...", caption, alt }.
-// Omit gallery (or leave it empty) until real documentation is available.
+
+
+
+
 export const experiences: Experience[] = [
   {
     id: "senior-scholarship-mentor",

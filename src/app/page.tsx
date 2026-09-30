@@ -48,10 +48,10 @@ export default function Home() {
 
   return (
     <main className="w-full">
-      {/* Interactive Hero Deck */}
+
       <Hero />
 
-      {/* Voyage Portals Command Center */}
+
       <section id="voyage-directory" className="relative max-w-6xl mx-auto scroll-mt-20 px-3 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="text-center mb-10 space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0b1b30] border border-cyan-500/60 pixel-box text-[11px] font-['Silkscreen',monospace] text-cyan-300">
@@ -66,7 +66,7 @@ export default function Home() {
           </p>
         </div>
 
-        {/* 4 Portals Grid */}
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {PORTAL_SECTIONS.map((portal) => {
             const Icon = portal.icon;

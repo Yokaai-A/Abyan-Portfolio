@@ -68,7 +68,7 @@ export default function SkillsPage() {
         </div>
       </section>
 
-      {/* Navigation Footer CTA */}
+
       <div className="text-center bg-[#071526]/90 border-2 border-cyan-500/60 p-6 pixel-box space-y-4">
         <p className="font-['Press_Start_2P',monospace] text-xs text-amber-300">
           SEE THESE TOOLS IN ACTION?

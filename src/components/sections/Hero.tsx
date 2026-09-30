@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import BackgroundVideo from "@/components/ui/BackgroundVideo";
 
-// Natural, human nautical/developer dialogues
+
 const SHIP_DIALOGUES = [
   "Scanning the horizon for new pull requests.",
   "Full sails on Next.js and TypeScript!",
@@ -30,7 +30,7 @@ export default function Hero() {
   const [characterHearts, setCharacterHearts] = useState<{ id: number; x: number }[]>([]);
   const [showDialogue, setShowDialogue] = useState(true);
 
-  // Character roaming state (safe bounds: 18% to 76%)
+
   const [charPosition, setCharPosition] = useState<number>(38);
   const [movementState, setMovementState] = useState<"idle" | "left" | "right">("idle");
   const [isMobileViewport, setIsMobileViewport] = useState(false);
@@ -38,7 +38,7 @@ export default function Hero() {
   const [walkDuration, setWalkDuration] = useState<number>(3);
   const isMovingRef = useRef(false);
 
-  // Captain sound ref
+
   const captainAudioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export default function Hero() {
     return () => narrowQuery.removeEventListener("change", updateViewport);
   }, []);
 
-  // 8-bit retro sound generator using native Web Audio API
+
   const playRetroSound = (type: "jump" | "bell" = "jump") => {
     if (typeof window === "undefined") return;
 
@@ -85,7 +85,7 @@ export default function Hero() {
         osc.start(now);
         osc.stop(now + 0.18);
       } else {
-        // Ship bell chime
+
         osc.type = "triangle";
         osc.frequency.setValueAtTime(659.25, now);
         osc.frequency.exponentialRampToValueAtTime(880, now + 0.08);
@@ -95,11 +95,11 @@ export default function Hero() {
         osc.stop(now + 0.35);
       }
     } catch {
-      // Audio context might require user interaction
+
     }
   };
 
-  // Wandering AI: patrol the deck left and right randomly without touching corners
+
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
 
@@ -117,7 +117,7 @@ export default function Hero() {
         const maxBound = 76;
         let nextPos = Math.floor(Math.random() * (maxBound - minBound + 1)) + minBound;
 
-        // Ensure noticeable movement distance
+
         if (Math.abs(nextPos - charPosition) < 18) {
           if (charPosition > 46) {
             nextPos = Math.max(minBound, charPosition - 28);
@@ -153,7 +153,7 @@ export default function Hero() {
     isMovingRef.current = false;
   };
 
-  // Debug log for character sizing across screen widths
+
   useEffect(() => {
     const logDimensions = () => {
       const img = document.querySelector('img[alt="Captain Abyan Roaming"]') as HTMLImageElement | null;
@@ -181,7 +181,7 @@ export default function Hero() {
     };
   }, []);
 
-  // Play captain MP3 sound effect
+
   const playCaptainSound = useCallback(() => {
     try {
       if (!captainAudioRef.current) {
@@ -190,7 +190,7 @@ export default function Hero() {
       captainAudioRef.current.currentTime = 0;
       captainAudioRef.current.play().catch(() => {});
     } catch {
-      // Audio not supported
+
     }
   }, []);
 
@@ -240,34 +240,28 @@ export default function Hero() {
       aria-label="Main deck hero section"
       className="relative min-h-screen w-full flex flex-col justify-between overflow-hidden pt-16 sm:pt-24 lg:pt-24 pb-4 sm:pb-6 px-3 sm:px-4 md:px-8 select-none"
     >
-      {/* 
-        PIXEL BACKGROUND VIDEO:
-        Continuous looping pixel art ship deck overlooking the sea
-      */}
+
       <div className="absolute inset-0 -z-20 overflow-hidden pointer-events-none">
         <BackgroundVideo className="w-full h-full object-cover object-bottom pixelated scale-100" />
 
-        {/* Ambient Sea Gradient Overlay */}
+
         <div className="absolute inset-0 bg-gradient-to-b from-[#060e1a]/85 via-[#07172b]/55 to-[#060e1a]/95" />
 
-        {/* Vignette */}
+
         <div className="absolute inset-0 bg-radial from-transparent via-[#030a14]/35 to-[#020610]/85" />
 
-        {/* Retro Scanlines */}
+
         <div className="absolute inset-0 scanlines opacity-30" />
       </div>
 
-      {/* Gentle Floating Atmospheric Glow */}
+
       <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse" />
       <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse" />
 
-      {/* 
-        TOP / MIDDLE SECTION:
-        Clean typography and pixel framing, completely matching the whole website
-      */}
+
       <div className="relative max-w-4xl w-full mx-auto my-auto flex flex-col items-center text-center space-y-4 sm:space-y-4 z-30 pt-1 sm:pt-4 pointer-events-auto">
 
-        {/* Status Badge */}
+
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -282,7 +276,7 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        {/* Name & Title */}
+
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -307,7 +301,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Bio Card in pixel-box */}
+
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -315,14 +309,11 @@ export default function Hero() {
           className="text-xs min-[400px]:text-sm sm:text-sm lg:text-base max-w-xl leading-relaxed font-['Pixelify_Sans',sans-serif] bg-[#071526]/85 px-4 py-2.5 min-[400px]:px-5 min-[400px]:py-3 sm:px-5 sm:py-3 border-2 border-slate-700/80 pixel-box shadow-xl text-center"
         >
           Building clean, intuitive, and reliable web & mobile applications from the
-          captain&apos;s deck, with a focus on thoughtful engineering, maintainable code, and 
+          captain&apos;s deck, with a focus on thoughtful engineering, maintainable code, and
           meaningful digital experiences built to sail beyond the horizon.
         </motion.p>
 
-        {/* 
-          ACTION BUTTONS:
-          Tactile 8-bit retro buttons matching the whole site
-        */}
+
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -351,11 +342,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* 
-        BOTTOM RUNWAY: FREE-ROAMING CHARACTER ON THE SHIP DECK
-        Smart Side Speech Bubble:
-        Anchored to the SIDE of the character so it never blocks the action buttons above!
-      */}
+
       <div className="relative w-full max-w-6xl mx-auto h-56 max-sm:h-[280px] sm:h-56 md:h-64 xl:h-64 2xl:h-72 z-20 pointer-events-none mt-2">
         <motion.div
           animate={{ left: `${charPosition}%` }}
@@ -368,7 +355,7 @@ export default function Hero() {
           onClick={handleCharacterClick}
           title="Click the captain to interact!"
         >
-          {/* Floating Heart Particles */}
+
           <AnimatePresence>
             {characterHearts.map((heart) => (
               <motion.div
@@ -384,7 +371,7 @@ export default function Hero() {
             ))}
           </AnimatePresence>
 
-          {/* Smart Side Speech Bubble */}
+
           <AnimatePresence>
             {showDialogue && (
               <motion.div
@@ -410,7 +397,7 @@ export default function Hero() {
                   {SHIP_DIALOGUES[dialogueIndex]}
                 </p>
 
-                {/* Pointer Arrow — desktop only; the mobile arrow points down from the bubble above the captain. */}
+
                 <div
                   className={`hidden sm:block absolute top-4 w-0 h-0 border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent ${
                     charPosition > 50
@@ -418,13 +405,13 @@ export default function Hero() {
                       : "-left-2 border-r-[8px] border-r-cyan-400"
                   }`}
                 />
-                {/* Pointer Arrow — mobile only: points down toward the character */}
+
                 <div className="sm:hidden absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[5px] border-l-transparent border-r-[5px] border-r-transparent border-t-[7px] border-t-cyan-400" />
               </motion.div>
             )}
           </AnimatePresence>
 
-          {/* Pixel Character Sprite */}
+
           <motion.div
             animate={
               isJumping
@@ -438,7 +425,7 @@ export default function Hero() {
             }
             className="relative"
           >
-            {/* Ambient water glow under feet */}
+
             <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-32 h-6 bg-cyan-400/20 rounded-full blur-sm pointer-events-none" />
 
             <img
@@ -460,7 +447,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Clean Bottom Navigation Hint to Voyage Directory */}
+
       <div className="relative z-30 hidden justify-center pb-1 sm:flex">
         <button
           type="button"
@@ -474,7 +461,7 @@ export default function Hero() {
         </button>
       </div>
 
-      {/* Subtle Bottom Horizon Fade into Voyage Directory */}
+
       <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-[#060e1a] to-transparent pointer-events-none" />
     </section>
   );

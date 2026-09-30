@@ -28,7 +28,7 @@ function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
 }
 
 export default function ContactPage() {
-  // Morse / Radio Blip sound generator
+
   const playMorseSound = (freq = 700, duration = 0.08) => {
     try {
       const AudioCtx =
@@ -49,7 +49,7 @@ export default function ContactPage() {
       osc.start(now);
       osc.stop(now + duration);
     } catch {
-      // Audio context restricted
+
     }
   };
 
@@ -64,7 +64,7 @@ export default function ContactPage() {
       />
       <div className="mx-auto w-full max-w-5xl min-w-0 px-3 pt-20 sm:px-6 sm:pt-24 lg:px-8">
 
-      {/* Page Header */}
+
       <div className="mb-10 min-w-0 space-y-3 text-center">
         <div className="inline-flex max-w-full flex-wrap items-center justify-center gap-2 px-3 py-1 bg-[#0b1b30] border border-cyan-500/60 pixel-box text-[9px] sm:text-[11px] font-['Silkscreen',monospace] text-cyan-300">
           <Radio className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
@@ -79,7 +79,7 @@ export default function ContactPage() {
       </div>
 
       <div className="mb-12 grid min-w-0 grid-cols-1 gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
-        {/* Left Side: Communication Frequencies & Socials (2 cols) */}
+
         <div className="min-w-0 space-y-6">
           <div className="bg-[#071526]/90 border-2 border-slate-700/90 p-6 pixel-box space-y-4 shadow-xl">
             <div className="flex items-center gap-2 pb-2 border-b border-slate-800 font-['Press_Start_2P',monospace] text-xs text-amber-300">
@@ -92,7 +92,7 @@ export default function ContactPage() {
             </p>
 
             <div className="space-y-3 pt-2 font-['Silkscreen',monospace] text-xs">
-              {/* Email */}
+
               <a
                 href="mailto:abyanhanif41@gmail.com"
                 onClick={() => playMorseSound(600, 0.08)}
@@ -105,7 +105,7 @@ export default function ContactPage() {
                 </div>
               </a>
 
-              {/* GitHub */}
+
               <a
                 href="https://github.com/Yokaai-A"
                 target="_blank"
@@ -120,7 +120,7 @@ export default function ContactPage() {
                 </div>
               </a>
 
-              {/* LinkedIn */}
+
               <a
                 href="https://www.linkedin.com/in/muhammad-abyan-hanif-42217b326/"
                 target="_blank"
@@ -142,7 +142,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Station Status Telemetry */}
+
           <div className="bg-[#071526]/90 border border-slate-700 p-5 pixel-box font-['Silkscreen',monospace] text-xs space-y-2">
             <div className="flex items-center justify-between text-cyan-300 pb-1 border-b border-slate-800 text-[10px]">
               <span>[ TELEMETRY STATUS ]</span>
@@ -159,7 +159,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        {/* Contact invitation */}
+
         <div className="min-w-0">
           <div className="relative flex h-full min-h-[340px] min-w-0 flex-col justify-between overflow-hidden border-2 border-cyan-500/60 bg-[#071526]/95 p-4 sm:p-8 pixel-box shadow-2xl">
             <div className="relative min-w-0">

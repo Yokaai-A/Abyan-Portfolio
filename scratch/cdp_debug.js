@@ -21,7 +21,7 @@ async function main() {
   ]);
 
   try {
-    // Wait for CDP endpoint
+
     let versionData = null;
     for (let i = 0; i < 30; i++) {
       await new Promise(r => setTimeout(r, 200));
@@ -46,7 +46,7 @@ async function main() {
 
     console.log('Connected to Edge CDP:', versionData.Browser);
 
-    // Create a new target/page with PUT
+
     const newPageData = await new Promise((resolve, reject) => {
       const req = http.request('http://127.0.0.1:9222/json/new?http://localhost:3000', { method: 'PUT' }, res => {
         let data = '';
@@ -91,7 +91,7 @@ async function main() {
     await send('Page.enable');
     await send('DOM.enable');
 
-    // Emulate 425px width mobile screen
+
     await send('Emulation.setDeviceMetricsOverride', {
       width: 425,
       height: 800,
@@ -103,7 +103,7 @@ async function main() {
     await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape' });
     await new Promise(r => setTimeout(r, 4500));
 
-    // Evaluate debugging script inside the page targeting Hero
+
     const debugInfo = await send('Runtime.evaluate', {
       expression: `(() => {
         const img = document.querySelector('img[alt="Captain Abyan Roaming"]');
@@ -156,7 +156,7 @@ async function main() {
     console.log('--- DEBUG INFO (425px) ---');
     console.log(JSON.stringify(debugInfo.result.value, null, 2));
 
-    // Capture screenshot
+
     const screenshot = await send('Page.captureScreenshot', { format: 'png' });
     const buffer = Buffer.from(screenshot.data, 'base64');
     fs.writeFileSync(path.join(__dirname, 'measured_425px.png'), buffer);

@@ -12,7 +12,7 @@ const NAV_ITEMS = [
   { name: "CONTACT",  href: "/contact"  },
 ];
 
-// Blink helper
+
 const BLINK_INTERVAL = 600;
 
 export default function Navbar() {
@@ -55,7 +55,7 @@ export default function Navbar() {
       gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
       osc.start(now);
       osc.stop(now + 0.12);
-    } catch { /* blocked */ }
+    } catch {}
   };
 
   return (
@@ -75,7 +75,7 @@ export default function Navbar() {
           : "none",
       }}
     >
-      {/* Animated gradient bottom line */}
+
       <div
         className="absolute bottom-0 left-0 right-0 h-px pointer-events-none"
         style={{
@@ -88,13 +88,13 @@ export default function Navbar() {
 
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-3 sm:px-6 py-2.5 sm:py-3">
 
-        {/* ══ LOGO — flashy left brand ══ */}
+
         <Link
           href="/"
           onClick={playBeep}
           className="flex items-center gap-3 group select-none"
         >
-          {/* Pixel emblem: glowing anchor badge with scanlines */}
+
           <div
             className="relative flex items-center justify-center w-9 h-9 shrink-0 transition-all duration-300 group-hover:scale-110 pixel-box"
             style={{
@@ -104,7 +104,7 @@ export default function Navbar() {
                 "0 0 0 2px #020810, 0 0 14px rgba(251,191,36,0.55), inset 0 0 8px rgba(251,191,36,0.08)",
             }}
           >
-            {/* scanline overlay inside badge */}
+
             <span className="absolute inset-0 scanlines opacity-30 pointer-events-none" />
             <Anchor
               className="w-4 h-4 relative z-10 group-hover:rotate-[20deg] transition-transform duration-300"
@@ -112,9 +112,9 @@ export default function Navbar() {
             />
           </div>
 
-          {/* Brand text block */}
+
           <div className="flex flex-col leading-none gap-1">
-            {/* Main title — amber glow, Press Start 2P */}
+
             <span
               className="font-['Press_Start_2P',monospace] text-[11px] sm:text-[13px] tracking-widest"
               style={{
@@ -125,7 +125,7 @@ export default function Navbar() {
               ABYAN.DEV
             </span>
 
-            {/* Sub-badge — retro pixel-box tag */}
+
             <span
               className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 font-['Silkscreen',monospace] text-[8px] tracking-widest pixel-box"
               style={{
@@ -141,7 +141,7 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* ── Desktop Links — match footer bracket style ── */}
+
         <div className="hidden lg:flex items-center gap-1 font-['Silkscreen',monospace] text-[11px]">
           {NAV_ITEMS.map((item) => {
             const active = pathname === item.href;
@@ -162,7 +162,7 @@ export default function Navbar() {
                   boxShadow: active ? "0 0 10px rgba(6,182,212,0.18)" : "none",
                 }}
               >
-                {/* Amber left accent on active */}
+
                 {active && (
                   <span
                     className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-3/4"
@@ -173,7 +173,7 @@ export default function Navbar() {
                   />
                 )}
 
-                {/* Sliding bottom line on hover */}
+
                 <span
                   className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-px transition-all duration-300 ${
                     active ? "w-3/4 opacity-100" : "w-0 opacity-0 group-hover:w-2/3 group-hover:opacity-60"
@@ -191,9 +191,9 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* ── Right cluster ── */}
+
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Status badge */}
+
           <div
             className="hidden sm:flex items-center gap-2 px-2.5 py-1 font-['Silkscreen',monospace] text-[10px]"
             style={{
@@ -209,7 +209,7 @@ export default function Navbar() {
             <span style={{ color: "#6ee7b7", letterSpacing: "0.1em" }}>VOYAGE: ACTIVE</span>
           </div>
 
-          {/* Mobile toggle */}
+
           <button
             onClick={() => { playBeep(); setMobileOpen(!mobileOpen); }}
             aria-label="Toggle menu"
@@ -230,7 +230,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* ── Mobile Drawer ── */}
+
       <div
         className="lg:hidden overflow-hidden transition-all duration-300 ease-in-out"
         style={{ maxHeight: mobileOpen ? "320px" : "0px", opacity: mobileOpen ? 1 : 0 }}
@@ -242,7 +242,7 @@ export default function Navbar() {
             borderTop: "1px solid rgba(6,182,212,0.2)",
           }}
         >
-          {/* Home */}
+
           <Link
             href="/"
             onClick={() => { playBeep(); setMobileOpen(false); }}
@@ -283,7 +283,7 @@ export default function Navbar() {
             );
           })}
 
-          {/* Footer row */}
+
           <div
             className="flex items-center justify-between pt-2 mt-1 text-[9px]"
             style={{ borderTop: "1px solid rgba(30,58,100,0.5)", color: "#4b6080" }}

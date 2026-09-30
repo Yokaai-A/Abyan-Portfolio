@@ -21,7 +21,7 @@ export default function VoyageRow({ category, title, direction, experiences }: {
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const Marker = markers[category];
-  // Keep short rows static. Longer rows repeat enough cards to support seamless looping.
+
   const looping = experiences.length > 2;
   const repetitions = looping ? Math.ceil(4 / experiences.length) : experiences.length ? 1 : 0;
   const cards = Array.from({ length: repetitions }, () => experiences).flat();
