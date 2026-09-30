@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Muhammad Abyan Hanif | Pixel Portfolio ⚓",
+  title: "Home | Pixel Portfolio ⚓",
   description: "Creative Frontend & Fullstack Developer - Pixel Sea Voyage Portfolio",
 };
 

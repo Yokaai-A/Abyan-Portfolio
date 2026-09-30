@@ -154,34 +154,6 @@ export default function Hero() {
   };
 
 
-  useEffect(() => {
-    const logDimensions = () => {
-      const img = document.querySelector('img[alt="Captain Abyan Roaming"]') as HTMLImageElement | null;
-      if (!img) return;
-      const rect = img.getBoundingClientRect();
-      const cs = window.getComputedStyle(img);
-      const visualBodyWidth = Math.round(rect.width * (32 / 64));
-      const visualBodyHeight = Math.round(rect.height * (59 / 64));
-      console.log("%c[Captain Abyan Debug]", "color: #06b6d4; font-weight: bold; font-size: 12px;");
-      console.table({
-        "Viewport Width": `${window.innerWidth}px`,
-        "Viewport Height": `${window.innerHeight}px`,
-        "DOM Image Box": `${Math.round(rect.width)}px × ${Math.round(rect.height)}px`,
-        "CSS Computed": `${cs.width} × ${cs.height}`,
-        "Visual Character Body": `~${visualBodyWidth}px wide × ~${visualBodyHeight}px tall`,
-        "Natural GIF Canvas": `${img.naturalWidth}px × ${img.naturalHeight}px (Character only fills 32×59px)`,
-      });
-    };
-
-    const timer = setTimeout(logDimensions, 600);
-    window.addEventListener("resize", logDimensions);
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener("resize", logDimensions);
-    };
-  }, []);
-
-
   const playCaptainSound = useCallback(() => {
     try {
       if (!captainAudioRef.current) {

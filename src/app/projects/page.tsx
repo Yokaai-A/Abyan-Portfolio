@@ -108,7 +108,7 @@ export default function ProjectsPage() {
                 playClickSound();
                 setActiveCategory(category);
               }}
-              className={`px-3 sm:px-4 py-2 pixel-box transition-all ${
+              className={`cursor-pointer px-3 sm:px-4 py-2 pixel-box transition-all ${
                 isActive
                   ? "bg-cyan-500/25 text-cyan-300 border-2 border-cyan-400 font-bold shadow-[0_0_12px_rgba(6,182,212,0.35)]"
                   : "bg-[#071526]/80 text-slate-300 border border-slate-700 hover:text-cyan-300 hover:border-cyan-500"

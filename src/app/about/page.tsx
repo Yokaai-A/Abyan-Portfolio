@@ -5,7 +5,7 @@ import ExperienceSection from "@/components/sections/Experience";
 import ProfilePhoto from "@/components/ui/ProfilePhoto";
 
 export const metadata: Metadata = {
-  title: "About Captain Abyan | Pixel Portfolio ⚓",
+  title: "About Me | Pixel Portfolio ⚓",
   description: "Learn more about Muhammad Abyan Hanif - journey, background, and developer experience.",
 };
 

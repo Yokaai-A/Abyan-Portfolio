@@ -58,10 +58,7 @@ export default function AudioVisualizer({
         if (ctx.state === "suspended") {
           ctx.resume().catch(() => {});
         }
-      } catch (err) {
-
-        console.info("Using simulated retro audio visualizer fallback:", err);
-      }
+      } catch {}
     };
 
     if (isPlaying) {

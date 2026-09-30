@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Anchor, Compass, Ship, Sparkles, Volume2, VolumeX } from "lucide-react";
+import { Anchor, Compass, Ship, Sparkles } from "lucide-react";
 
 const LOADING_STEPS = [
   { threshold: 0, text: "Preparing the hull of S.S. CODECRAFT...", captain: "Ahoy traveler! Getting things ready..." },
@@ -19,14 +19,13 @@ export default function LoadingScreen() {
   const [statusText, setStatusText] = useState(LOADING_STEPS[0].text);
   const [captainDialogue, setCaptainDialogue] = useState(LOADING_STEPS[0].captain);
   const [isReady, setIsReady] = useState(false);
-  const [soundEnabled, setSoundEnabled] = useState(true);
 
   const audioCtxRef = useRef<AudioContext | null>(null);
   const lastBeepProgressRef = useRef<number>(0);
 
 
   const playRetroTone = useCallback((freq: number, duration: number = 0.08, type: OscillatorType = "square") => {
-    if (!soundEnabled || typeof window === "undefined") return;
+    if (typeof window === "undefined") return;
     try {
       const AudioCtx =
         window.AudioContext ||
@@ -58,11 +57,11 @@ export default function LoadingScreen() {
     } catch {
 
     }
-  }, [soundEnabled]);
+  }, []);
 
 
   const playVictoryChime = useCallback(() => {
-    if (!soundEnabled || typeof window === "undefined") return;
+    if (typeof window === "undefined") return;
     try {
       const notes = [440, 554.37, 659.25, 880];
       notes.forEach((freq, i) => {
@@ -73,7 +72,7 @@ export default function LoadingScreen() {
     } catch {
 
     }
-  }, [soundEnabled, playRetroTone]);
+  }, [playRetroTone]);
 
 
   const handleEnter = useCallback(() => {
@@ -187,25 +186,6 @@ export default function LoadingScreen() {
             </div>
 
             <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={() => setSoundEnabled((prev) => !prev)}
-                className="flex items-center gap-1.5 px-2.5 py-1 bg-[#071526]/90 border border-slate-700/80 hover:border-cyan-400 pixel-box text-slate-300 hover:text-white transition-colors cursor-pointer"
-                title="Toggle retro audio"
-              >
-                {soundEnabled ? (
-                  <>
-                    <Volume2 className="w-3.5 h-3.5 text-amber-400" />
-                    <span>SFX: ON</span>
-                  </>
-                ) : (
-                  <>
-                    <VolumeX className="w-3.5 h-3.5 text-slate-500" />
-                    <span>SFX: OFF</span>
-                  </>
-                )}
-              </button>
-
               <button
                 type="button"
                 onClick={handleEnter}

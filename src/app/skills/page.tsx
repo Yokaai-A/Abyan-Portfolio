@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Anchor, Compass, ArrowDown, ArrowRight, Monitor, Laptop, CodeXml } from "lucide-react";
 import SkillsInventory from "@/components/sections/TechStack";
+
+export const metadata: Metadata = {
+  title: "Skills | Pixel Portfolio ⚓",
+};
 
 export default function SkillsPage() {
   return (
