@@ -10,6 +10,10 @@ export const techStack: TechStackItem[] = [
   { name: "Framer Motion", icon: "/assets/icons/skills/framer.svg", category: "frontend" },
   { name: "HTML5 / Canvas", icon: "/assets/icons/skills/html5.svg", category: "frontend" },
   { name: "JavaScript", icon: "/assets/icons/skills/javascript.svg", category: "frontend" },
+  { name: "Java", icon: "/assets/icons/skills/java.svg", category: "frontend" },
+  { name: "Python", icon: "/assets/icons/skills/python.svg", category: "frontend" },
+  { name: "Dart", icon: "/assets/icons/skills/dart.svg", category: "frontend" },
+  { name: "C", icon: "/assets/icons/skills/c.svg", category: "frontend" },
 
 
   { name: "Node.js", icon: "/assets/icons/skills/nodedotjs.svg", category: "backend" },
@@ -17,10 +21,11 @@ export const techStack: TechStackItem[] = [
 
 
   { name: "PostgreSQL", icon: "/assets/icons/skills/postgresql.svg", category: "database" },
+  { name: "MySQL", category: "database" },
+  { name: "SQL", icon: "/assets/icons/skills/sql.svg", category: "database" },
 
 
   { name: "Git & GitHub", icon: "/assets/icons/skills/git.svg", category: "tools" },
-  { name: "Docker", icon: "/assets/icons/skills/docker.svg", category: "tools" },
   { name: "Figma", icon: "/assets/icons/skills/figma.svg", category: "tools" },
   { name: "Canva", icon: "/assets/icons/skills/canva.svg", category: "tools" },
 ];

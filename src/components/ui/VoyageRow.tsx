@@ -1,26 +1,23 @@
 "use client";
 
-import { Anchor, BookOpen, ChevronLeft, ChevronRight, Compass, Pause, Play, Users } from "lucide-react";
+import { ChevronLeft, ChevronRight, Compass, Pause, Play } from "lucide-react";
 import { useRef, useState, type CSSProperties } from "react";
 import { flushSync } from "react-dom";
-import type { Experience, VoyageCategory } from "@/types";
+import type { Experience } from "@/types";
 import ExperienceCard from "./ExperienceCard";
 import VoyageMemories from "./VoyageMemories";
 import styles from "./VoyageRow.module.css";
 
-const markers = { leadership: Anchor, community: Users, academic: BookOpen, personal: Compass };
-
-export default function VoyageRow({ category, title, direction, experiences }: {
-  category: VoyageCategory;
+export default function VoyageRow({ title, direction, experiences, emptyMessage = "MORE VOYAGES ARE BEING CHARTED..." }: {
   title: string;
   direction: "left" | "right";
   experiences: Experience[];
+  emptyMessage?: string;
 }) {
   const [manual, setManual] = useState(false);
   const [selected, setSelected] = useState<Experience | null>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
-  const Marker = markers[category];
 
   const looping = experiences.length > 2;
   const repetitions = looping ? Math.ceil(4 / experiences.length) : experiences.length ? 1 : 0;
@@ -61,10 +58,10 @@ export default function VoyageRow({ category, title, direction, experiences }: {
   }
 
   return (
-    <section aria-labelledby={`${category}-heading`} className={selected ? styles.modalOpen : ""}>
+    <section aria-labelledby="voyage-gallery-heading" className={selected ? styles.modalOpen : ""}>
       <header className="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-cyan-800/60 pb-3">
-        <h3 id={`${category}-heading`} className="flex items-center gap-3 font-pixel-mono text-sm text-amber-300 sm:text-base">
-          <Marker aria-hidden="true" className="h-4 w-4 shrink-0 text-cyan-400" />{title}
+        <h3 id="voyage-gallery-heading" className="flex items-center gap-3 font-pixel-mono text-sm text-amber-300 sm:text-base">
+          <Compass aria-hidden="true" className="h-4 w-4 shrink-0 text-cyan-400" />{title}
         </h3>
         {experiences.length > 0 && (
           <div className="flex items-center gap-2">
@@ -109,7 +106,7 @@ export default function VoyageRow({ category, title, direction, experiences }: {
       ) : (
         <div className="flex min-h-52 flex-col items-center justify-center gap-4 border border-dashed border-cyan-900 bg-[#071526]/50 p-6 text-center">
           <Compass aria-hidden="true" className="h-7 w-7 text-cyan-700" />
-          <p className="font-pixel-mono text-xs leading-loose text-slate-400">MORE VOYAGES ARE BEING CHARTED...</p>
+          <p className="font-pixel-mono text-xs leading-loose text-slate-400">{emptyMessage}</p>
         </div>
       )}
       {selected && <VoyageMemories experience={selected} onDismiss={() => setSelected(null)} />}

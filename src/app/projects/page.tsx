@@ -160,26 +160,6 @@ export default function ProjectsPage() {
               </p>
 
 
-              {project.highlights && project.highlights.length > 0 && (
-                <div className="space-y-1.5 pt-1">
-                  <span className="text-[10px] font-['Silkscreen',monospace] text-amber-300 tracking-wider">
-                    KEY ACHIEVEMENTS:
-                  </span>
-                  <ul className="space-y-1">
-                    {project.highlights.map((h, i) => (
-                      <li
-                        key={i}
-                    className="text-[11px] text-slate-300 flex items-start gap-2 font-['Pixelify_Sans',sans-serif]"
-                      >
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-
               <div className="flex flex-wrap gap-1.5 pt-2">
                 {project.tags.map((tag) => (
                   <span
@@ -202,7 +182,7 @@ export default function ProjectsPage() {
                   className="inline-flex items-center gap-2 px-3 py-2.5 bg-gradient-to-b from-cyan-500 to-blue-700 text-white border border-cyan-200 pixel-box pixel-btn-primary"
                 >
                   <ExternalLink className="w-3 h-3" />
-                  <span>LIVE DEMO</span>
+                  <span>{project.demoLabel ?? "LIVE DEMO"}</span>
                 </a>
               ) : (
                 <span className="inline-flex items-center gap-2 px-3 py-2.5 bg-slate-800/60 text-slate-400 border border-slate-700 pixel-box cursor-not-allowed">

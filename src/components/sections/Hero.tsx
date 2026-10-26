@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   Compass,
   Anchor,
-  ArrowRight,
+  Download,
   Heart,
   Ship,
   Mail,
@@ -292,15 +292,15 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="relative z-40 flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-1 font-['Press_Start_2P',monospace] text-[10px] min-[400px]:text-[11px] sm:text-[10px] lg:text-xs"
         >
-          <Link
-            href="/projects"
+          <a
+            href="/assets/CV_Muhammad-Abyan-Hanif.pdf"
+            download
             onClick={() => playRetroSound("bell")}
             className="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3.5 min-[400px]:px-4 sm:px-4 py-3 sm:py-3 bg-gradient-to-b from-cyan-500 to-blue-700 text-white border-2 border-cyan-200 pixel-box pixel-btn-primary hover:brightness-110 active:translate-y-1 transition-all"
           >
-            <Compass className="w-3.5 h-3.5" />
-            <span>VIEW PROJECTS</span>
-            <ArrowRight className="w-3 h-3" />
-          </Link>
+            <Download className="w-3.5 h-3.5" />
+            <span>DOWNLOAD CV</span>
+          </a>
 
           <Link
             href="/contact"

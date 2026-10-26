@@ -25,7 +25,7 @@ export default function Footer() {
 
         <div className="flex flex-wrap items-center justify-center gap-4 text-[11px] text-slate-300">
           <a
-            href="https://www.linkedin.com/in/muhammad-abyan-hanif-42217b326/"
+            href="https://www.linkedin.com/in/muhammadabyanhanif"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-cyan-300 transition-colors"
@@ -40,7 +40,7 @@ export default function Footer() {
           >
             [ GITHUB ]
           </a>
-          <a href="mailto:abyanhanif41@gmail.com" className="hover:text-cyan-300 transition-colors">
+          <a href="mailto:abyanhanifpersonal@gmail.com" className="hover:text-cyan-300 transition-colors">
             [ EMAIL ]
           </a>
         </div>

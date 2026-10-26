@@ -94,14 +94,14 @@ export default function ContactPage() {
             <div className="space-y-3 pt-2 font-['Silkscreen',monospace] text-xs">
 
               <a
-                href="mailto:abyanhanif41@gmail.com"
+                  href="mailto:abyanhanifpersonal@gmail.com"
                 onClick={() => playMorseSound(600, 0.08)}
                 className="group flex min-w-0 items-center gap-3 p-3 bg-[#030a14] border border-cyan-500/40 pixel-box hover:border-cyan-300 hover:bg-[#07172b] transition-colors"
               >
                 <Mail className="w-4 h-4 shrink-0 text-cyan-400 group-hover:scale-110 transition-transform" />
                 <div className="min-w-0 flex-1 [overflow-wrap:anywhere]">
                   <div className="text-[9px] text-slate-400">ELECTRONIC DISPATCH</div>
-                  <div className="text-cyan-200 text-xs [overflow-wrap:anywhere]">abyanhanif41@gmail.com</div>
+                    <div className="text-cyan-200 text-xs [overflow-wrap:anywhere]">abyanhanifpersonal@gmail.com</div>
                 </div>
               </a>
 
@@ -122,7 +122,7 @@ export default function ContactPage() {
 
 
               <a
-                href="https://www.linkedin.com/in/muhammad-abyan-hanif-42217b326/"
+                href="https://www.linkedin.com/in/muhammadabyanhanif"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => playMorseSound(800, 0.08)}
@@ -135,7 +135,7 @@ export default function ContactPage() {
                     className="block w-full text-slate-200 text-xs leading-relaxed"
                     style={{ overflowWrap: "anywhere", wordBreak: "break-all" }}
                   >
-                    linkedin.com/in/muhammad-abyan-hanif-42217b326
+                    linkedin.com/in/muhammadabyanhanif
                   </div>
                 </div>
               </a>
@@ -178,7 +178,7 @@ export default function ContactPage() {
             </div>
 
             <div className="relative mt-8 flex flex-wrap items-center gap-4 border-t border-slate-800 pt-5">
-              <a href="mailto:abyanhanif41@gmail.com?subject=Hello%20Abyan" onClick={() => playMorseSound(880, 0.15)}
+                <a href="mailto:abyanhanifpersonal@gmail.com?subject=Hello%20Abyan" onClick={() => playMorseSound(880, 0.15)}
                 className="inline-flex items-center gap-3 border-2 border-cyan-200 bg-gradient-to-b from-cyan-500 to-blue-700 px-5 py-3 text-white pixel-box pixel-btn-primary transition hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-300">
                 <Mail aria-hidden="true" className="h-4 w-4" />
                 <span className="font-['Press_Start_2P',monospace] text-[10px]">SEND AN EMAIL</span>

@@ -7,6 +7,7 @@ export interface Project {
   category?: "Fullstack" | "Frontend" | "Mobile & Game" | "Tools & AI";
   featured?: boolean;
   demoUrl?: string;
+  demoLabel?: string;
   repoUrl?: string;
   highlights?: string[];
 }
@@ -42,4 +43,3 @@ export interface TechStackItem {
   category: SkillCategory;
   icon?: string;
 }
-

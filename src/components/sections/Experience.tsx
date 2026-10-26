@@ -1,9 +1,6 @@
 import { Compass } from "lucide-react";
-import { experiences, voyageCategories } from "@/data/experiences";
+import { experiences } from "@/data/experiences";
 import VoyageRow from "@/components/ui/VoyageRow";
-import type { VoyageCategory } from "@/types";
-
-const categories: VoyageCategory[] = ["leadership", "community", "academic"];
 
 export default function ExperienceSection() {
   return (
@@ -19,12 +16,8 @@ export default function ExperienceSection() {
           A collection of experiences gathered along the journey.
         </p>
       </header>
-      <div className="space-y-14 sm:space-y-16">
-        {categories.map((category) => (
-          <VoyageRow key={category} category={category} title={voyageCategories[category].label}
-            direction={voyageCategories[category].direction}
-            experiences={experiences.filter((experience) => experience.category === category)} />
-        ))}
+      <div>
+        <VoyageRow title="VOYAGE" direction="left" experiences={experiences} />
       </div>
     </section>
   );

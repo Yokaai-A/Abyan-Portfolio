@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Anchor, Compass, Sparkles, Terminal, ArrowRight, ShieldCheck } from "lucide-react";
 import ExperienceSection from "@/components/sections/Experience";
+import CertificatesSection from "@/components/sections/Certificates";
 import ProfilePhoto from "@/components/ui/ProfilePhoto";
 
 export const metadata: Metadata = {
@@ -122,6 +123,7 @@ export default function AboutPage() {
 
       <div className="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8">
       <ExperienceSection />
+      <CertificatesSection />
 
 
       <section aria-labelledby="captains-code-heading" className="mb-14 pt-4 sm:mb-16 sm:pt-6">
