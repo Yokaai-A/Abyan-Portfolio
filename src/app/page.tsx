@@ -22,7 +22,7 @@ export default function Home() {
       color: "from-amber-500 to-amber-700",
       accent: "text-amber-300",
       border: "hover:border-amber-400",
-      description: "Weapons & tools mastered across TypeScript, React, Next.js, and scalable backends.",
+      description: "Tools and technologies for frontend development, Flutter app building, and interface design.",
     },
     {
       title: "EXPEDITION LOG",
@@ -42,7 +42,7 @@ export default function Home() {
       color: "from-emerald-500 to-teal-700",
       accent: "text-emerald-300",
       border: "hover:border-emerald-400",
-      description: "Transmit a direct signal to discuss quests, commissions, or fullstack voyages.",
+      description: "Transmit a direct signal to discuss quests, commissions, or frontend projects.",
     },
   ];
 

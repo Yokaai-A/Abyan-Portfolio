@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Home | Pixel Portfolio ⚓",
-  description: "Creative Frontend & Fullstack Developer - Pixel Sea Voyage Portfolio",
+  description: "Frontend developer focused on Flutter and Figma - Pixel Sea Voyage Portfolio",
 };
 
 export default function RootLayout({

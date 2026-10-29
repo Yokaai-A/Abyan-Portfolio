@@ -45,11 +45,11 @@ export const projects: Project[] = [
   },
   {
     id: "dresssense",
-    title: "DressSense: Accessible Outfit Assistant",
+    title: "DressSense: Color-Blind Friendly Fashion App",
     description:
       "A mobile app designed to help people with color blindness identify clothing colors and plan everyday outfits, with a digital wardrobe, local weather information, outfit inspiration, and a product catalog.",
-    tags: ["Flutter", "Dart", "Laravel", "PHP", "Camera", "Geolocation"],
-    category: "Fullstack",
+    tags: ["Flutter", "Dart", "Figma"],
+    category: "Frontend",
     image: "/assets/projects/Dressense.png",
     repoUrl: "https://github.com/Yokaai-A/DressSense",
   },

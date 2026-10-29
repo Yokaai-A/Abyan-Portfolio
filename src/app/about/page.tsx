@@ -61,11 +61,12 @@ export default function AboutPage() {
             <dt className="text-slate-400">Interests:</dt>
             <dd className="font-semibold text-cyan-200">
               <span className="block">Software Engineering</span>
-              <span className="block">Full-Stack Development</span>
+              <span className="block">Frontend Development</span>
+              <span className="block">Flutter &amp; Figma</span>
             </dd>
 
             <dt className="text-slate-400">Focus:</dt>
-            <dd className="font-semibold text-cyan-200">Web &amp; Mobile Development</dd>
+              <dd className="font-semibold text-cyan-200">Frontend with Flutter &amp; Figma</dd>
 
             <dt className="text-slate-400">Based in:</dt>
             <dd className="font-semibold text-cyan-200">Indonesia</dd>
@@ -84,11 +85,11 @@ export default function AboutPage() {
             </div>
 
             <p>
-              Ahoy! I&apos;m <strong className="text-cyan-300">Muhammad Abyan Hanif</strong>, a Computer Science student at Bina Nusantara University with a strong interest in Software Engineering and Full-Stack Development. I focus on building web and mobile applications that are functional, intuitive, and designed around real user needs.
+              Ahoy! I&apos;m <strong className="text-cyan-300">Muhammad Abyan Hanif</strong>, a Computer Science student at Bina Nusantara University focused on frontend development with Flutter and Figma. I build intuitive mobile experiences and design interfaces around real user needs.
             </p>
 
             <p>
-              I enjoy working across different layers of development, from crafting responsive user interfaces to designing application logic and backend systems. I approach each project with an emphasis on clean, readable, and maintainable code, while keeping scalability and good software architecture in mind.
+              I enjoy turning ideas and designs into clear, polished user interfaces. My work focuses on frontend implementation with Flutter and thoughtful interface design in Figma.
             </p>
 
             <p>

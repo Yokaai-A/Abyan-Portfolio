@@ -269,7 +269,7 @@ export default function Hero() {
 
           <div className="pt-0.5 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 font-['Silkscreen',monospace] text-cyan-200 text-[10px] min-[380px]:text-[11px] min-[400px]:text-xs sm:text-xs lg:text-sm">
             <Ship className="w-3.5 h-3.5 text-amber-400 inline" />
-            <span>SOFTWARE ENGINEER & FULLSTACK DEVELOPER</span>
+            <span>FRONTEND DEVELOPER // FLUTTER & FIGMA</span>
           </div>
         </motion.div>
 
