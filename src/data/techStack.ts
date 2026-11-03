@@ -12,7 +12,7 @@ export const techStack: TechStackItem[] = [
   { name: "JavaScript", icon: "/assets/icons/skills/javascript.svg", category: "frontend" },
   { name: "Java", icon: "/assets/icons/skills/java.svg", category: "frontend" },
   { name: "Python", icon: "/assets/icons/skills/python.svg", category: "frontend" },
-  { name: "Flutter", category: "frontend" },
+  { name: "Flutter", icon: "/assets/icons/skills/flutter.svg", category: "frontend" },
   { name: "Dart", icon: "/assets/icons/skills/dart.svg", category: "frontend" },
   { name: "C", icon: "/assets/icons/skills/c.svg", category: "frontend" },
 
