@@ -57,6 +57,16 @@ const certificates = [
     issuer: "Dicoding",
   },
   {
+    file: "Belajar Fundamental Aplikasi Flutter.pdf",
+    title: "Belajar Fundamental Aplikasi Flutter",
+    issuer: "Dicoding",
+  },
+  {
+    file: "Belajar Machine Learning Untuk Pemula.pdf",
+    title: "Belajar Machine Learning untuk Pemula",
+    issuer: "Dicoding",
+  },
+  {
     file: "Freshmen_Leader_Certificate.pdf",
     title: "Freshmen Leader",
     issuer: "BINUS University",
