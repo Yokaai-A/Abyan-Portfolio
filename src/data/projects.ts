@@ -58,7 +58,7 @@ export const projects: Project[] = [
     title: "Electus: AI Applicant Tracking System",
     description:
       "A polished recruiting platform interface for reviewing candidates, exploring hiring analytics, and using AI-assisted CV tools. My contribution focused on the frontend experience and responsive UI.",
-    tags: ["React"],
+    tags: ["React", "Tailwind CSS"],
     category: "Frontend",
     image: "/assets/projects/Electus.png",
     highlights: [
