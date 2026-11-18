@@ -18,21 +18,6 @@ export const projects: Project[] = [
     repoUrl: "https://github.com/Yokaai-A/My-Portofolio",
   },
   {
-    id: "electus",
-    title: "Electus: AI Applicant Tracking System",
-    description:
-      "A polished recruiting platform interface for reviewing candidates, exploring hiring analytics, and using AI-assisted CV tools. My contribution focused on the frontend experience and responsive UI.",
-    tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "Recharts", "Three.js"],
-    category: "Frontend",
-    image: "/assets/projects/Electus.png",
-    highlights: [
-      "Liquid Glass landing page with an animated WebGL visual",
-      "Responsive dashboard and candidate management interface",
-      "Analytics visualizations and CV workflow screens",
-    ],
-    repoUrl: "https://github.com/OlanIsm/Electus-PROJECT",
-  },
-  {
     id: "nexiera",
     title: "Nexiera: Campus Learning Marketplace",
     description:
@@ -67,6 +52,21 @@ export const projects: Project[] = [
       "User authentication and inventory management",
       "Admin dashboard for monitoring data",
     ],
+  },
+  {
+    id: "electus",
+    title: "Electus: AI Applicant Tracking System",
+    description:
+      "A polished recruiting platform interface for reviewing candidates, exploring hiring analytics, and using AI-assisted CV tools. My contribution focused on the frontend experience and responsive UI.",
+    tags: ["React"],
+    category: "Frontend",
+    image: "/assets/projects/Electus.png",
+    highlights: [
+      "Liquid Glass landing page with an animated WebGL visual",
+      "Responsive dashboard and candidate management interface",
+      "Analytics visualizations and CV workflow screens",
+    ],
+    repoUrl: "https://github.com/OlanIsm/Electus-PROJECT",
   },
   {
     id: "picverse",
